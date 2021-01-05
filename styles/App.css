@@ -16,6 +16,7 @@ body {
     background-repeat: no-repeat;
     background-size:cover;
     padding: 3rem;
+    /* height: 100%; */
 }
 
 .bgdiv {
@@ -214,17 +215,8 @@ footer p {
     margin-top: 2rem;
     margin-bottom: 1rem;
     align-self: center;
+    text-align: center;
 }
-
-
-/* MEDIA QUERIES TO DO 
-
-
-
-/* @media only screen and (min-width: 1200px) {
-    //it is OK
-} */
-
 
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
 
@@ -232,8 +224,7 @@ footer p {
         width: 25rem;
         height: 14rem;
     }
-    
-    
+
     #img {
         height: 34.375rem;
         width: 25rem;
@@ -260,14 +251,11 @@ footer p {
 
 
 @media only screen and (min-width: 768px) and (max-width: 991px) {
-
-
     #logo {
         width: 25rem;
         height: 14rem;
     }
-    
-    
+
     #img {
         height: 34.375rem;
         width: 25rem;
@@ -291,14 +279,97 @@ footer p {
     .gameModeButton{
         font-size: 2rem;
     }
-
 }
 
 
 @media only screen and (min-width: 576px) and (max-width: 767px) {
+    #settingsButton {
+        order:2;
+    }
 
+    #img {
+        order:3;
+        position: absolute;
+        top: 56rem;
+    }
+
+    #changeGameMode {
+        margin-bottom: 42rem;
+        padding: 2rem;
+    }
+
+    .gameArea {
+        width: 100%;
+    }
+
+    #logo {
+        --width: 45rem;
+        width: var(--width);
+        height: calc(var(--width) * 0.56);
+    }
+
+    #img {
+        --width: 25rem;
+        width: var(--width);
+        height: calc(var(--width) * 1.495);
+    }
+
+    #currentGameMode {  
+        padding: 1.5rem;      
+        font-size: 2.5rem;
+    }
+
+    .button {
+        font-size: 2.2rem;
+        font-weight: 600;
+    }
 }
 
 @media only screen and (max-width: 575px) {
+    #settingsButton {
+        order:2;
+    }
 
+    #img {
+        order:3;
+        position: absolute;
+        top: 64rem;
+    }
+
+    #changeGameMode {
+        flex-direction: column;
+        margin-bottom: 42rem;
+        padding: 2rem;
+    }
+
+    .gameArea {
+        width: 100%;
+    }
+
+    #logo {
+        --width: 30rem;
+        width: var(--width);
+        height: calc(var(--width) * 0.56);
+    }
+
+    #img {
+        --width: 25rem;
+        width: var(--width);
+        height: calc(var(--width) * 1.495);
+    }
+
+    #currentGameMode {  
+        padding: 1.5rem;      
+        font-size: 2.5rem;
+    }
+
+    .button {
+        font-size: 2.2rem;
+        font-weight: 600;
+    }
+
+    #actionButtons .button{
+        width: 48%;
+        margin: 1rem 1rem;
+    }
 }
