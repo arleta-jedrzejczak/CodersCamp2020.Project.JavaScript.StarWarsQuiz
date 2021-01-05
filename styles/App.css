@@ -33,7 +33,7 @@ body {
     height: 8rem;
     border-radius: 2rem;
     border: 1px solid #000;
-    font-size: 4rem;
+    font-size: 3rem;
     color: #000;
     font-weight: 600;
 }
@@ -51,6 +51,7 @@ MAIN
 main{
     display: flex; 
     flex-wrap: wrap;
+    justify-content: space-around;
 }
 
 /*
@@ -63,8 +64,8 @@ LOGO IMG SETTING
     background-image: url("../static/assets/ui/StarWarsLogo.png");
     background-repeat: no-repeat;
     background-size: contain;
-    width: 58.5rem;
-    height: 32.8rem;
+    width: 35rem;
+    height: 19.6rem;
 }
 
 .logoImgSettings {
@@ -80,15 +81,15 @@ LOGO IMG SETTING
 
 #img {
     background-image: url("../static/assets/img/modes/people/1.jpg");
-    height: 55rem;
-    width: 40rem;
+    height: 48.125rem;
+    width: 35rem;
     background-repeat: no-repeat;
     background-size: cover;
     border-radius: 5rem;
 }
 
 #settingsButton {
-    width: 50%;
+    width: 80%;
     /* Below display for working timer */
     /* display:none; */
 }
@@ -103,7 +104,7 @@ GAME AREA
     display: flex;
     flex-direction: column;
     width: 60%;
-    margin: 5rem auto;
+    margin: 1rem 0;
 }
 
 /* Change Game Mode */
@@ -141,16 +142,16 @@ GAME AREA
 #currentGameMode {
     padding: 5rem;
     text-align: center;
-    font-size: 4rem;
+    font-size: 3rem;
     font-weight: 700;
 }
 
 /* Current Game Mode Description */
 
 #currentGameModeDescription {
-    height: 30%;
     text-align: center;
     min-height: 30rem;
+
 }
 
 #currentGameModeDescription * {
@@ -218,6 +219,86 @@ footer p {
 
 /* MEDIA QUERIES TO DO 
 
-@media  {
 
+
+/* @media only screen and (min-width: 1200px) {
+    //it is OK
 } */
+
+
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+
+    #logo {
+        width: 25rem;
+        height: 14rem;
+    }
+    
+    
+    #img {
+        height: 34.375rem;
+        width: 25rem;
+    }
+
+    .button {
+        font-size: 2rem;
+        font-weight: 600;
+    }
+
+    #currentGameMode {        
+        font-size: 2.5rem;
+    }
+
+    #changeGameMode {
+        margin-bottom: 6rem;
+    }
+
+    .gameModeButton{
+        font-size: 3rem;
+    }
+
+}
+
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+
+
+    #logo {
+        width: 25rem;
+        height: 14rem;
+    }
+    
+    
+    #img {
+        height: 34.375rem;
+        width: 25rem;
+    }
+
+    .button {
+        font-size: 2rem;
+        font-weight: 600;
+    }
+
+    #currentGameMode {  
+        padding: 2rem;      
+        font-size: 2rem;
+    }
+
+    #changeGameMode {
+        padding: 2rem;
+        margin-bottom: 4rem;
+    }
+
+    .gameModeButton{
+        font-size: 2rem;
+    }
+
+}
+
+
+@media only screen and (min-width: 576px) and (max-width: 767px) {
+
+}
+
+@media only screen and (max-width: 575px) {
+
+}
