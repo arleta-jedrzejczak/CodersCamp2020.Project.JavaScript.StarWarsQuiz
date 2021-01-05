@@ -1,5 +1,10 @@
 import 'regenerator-runtime/runtime' //async/await with Parcel
+import GameEngine from "./app/GameEngine";
 import {App} from "./app/App";
+
+const newGame = new GameEngine('people');
+newGame.init();
+newGame.startGame();
 
 const ONE_SECOND_MILLIS = 1000;
 const SW_API_BASE_URL = process.env.SW_API_BASE_URL || "https://swapi.dev/api";
