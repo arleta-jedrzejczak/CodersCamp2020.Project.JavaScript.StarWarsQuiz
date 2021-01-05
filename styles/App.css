@@ -1,3 +1,223 @@
-body {
+@import url(reset.css);
+
+/*
+////////////////////////////////////////////////
+GENERAL
+////////////////////////////////////////////////
+*/
+
+html {
+    font-size: 10px;
     font-family: 'Montserrat', sans-serif;
 }
+
+body {
+    background-image: url("../static/assets/ui/QuizBackground.png") ;
+    background-repeat: no-repeat;
+    background-size:cover;
+    padding: 3rem;
+}
+
+.bgdiv {
+    background-color: #fff;
+    margin: 1rem;
+    border-radius: 2rem;
+}
+
+.boxShadow {
+    box-shadow:0 0 25px 1px  red
+}
+
+.button {
+    display: block;
+    height: 8rem;
+    border-radius: 2rem;
+    border: 1px solid #000;
+    font-size: 4rem;
+    color: #000;
+    font-weight: 600;
+}
+
+.hoverCursor:hover{
+    cursor: pointer;
+}
+
+/*
+////////////////////////////////////////////////
+MAIN
+////////////////////////////////////////////////
+*/
+
+main{
+    display: flex; 
+    flex-wrap: wrap;
+}
+
+/*
+////////////////////////////
+LOGO IMG SETTING
+///////////////////////////
+*/
+
+#logo {
+    background-image: url("../static/assets/ui/StarWarsLogo.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 58.5rem;
+    height: 32.8rem;
+}
+
+.logoImgSettings {
+    display:flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.logoImgSettings * {
+    margin: 1rem;
+}
+
+#img {
+    background-image: url("../static/assets/img/modes/people/1.jpg");
+    height: 55rem;
+    width: 40rem;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 5rem;
+}
+
+#settingsButton {
+    width: 50%;
+    /* Below display for working timer */
+    /* display:none; */
+}
+
+/*
+////////////////////////////
+GAME AREA
+///////////////////////////
+*/
+
+.gameArea {
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+    margin: 5rem auto;
+}
+
+/* Change Game Mode */
+
+#changeGameMode {
+    display: flex;
+    justify-content: space-around;
+    padding: 4rem;
+    margin-bottom: 10rem;
+}
+
+.gameModeButton{
+    background-color: rgba(0,0,0,0);
+    border: none;
+    color: #e6e6e6;
+}
+
+.gameModeButton:hover{
+    position:relative;
+    color:#000;
+}
+
+.gameModeButton:hover::before{
+    content:'';
+    position:absolute;
+    bottom:-2px;
+    left:0;
+    width:100%;
+    height:5px;
+    background:red;
+    box-shadow:0 0 25px 5px  red;
+}
+
+/* Current Game Mode */
+#currentGameMode {
+    padding: 5rem;
+    text-align: center;
+    font-size: 4rem;
+    font-weight: 700;
+}
+
+/* Current Game Mode Description */
+
+#currentGameModeDescription {
+    height: 30%;
+    text-align: center;
+    min-height: 30rem;
+}
+
+#currentGameModeDescription * {
+    margin: 2rem auto; 
+}
+
+#currentGameModeDescription h3 {
+    font-size: 4rem;
+    font-weight: 600;
+}
+
+#currentGameModeDescription p {
+    padding: 1rem 4rem;
+    font-size: 2.5rem;
+    font-weight: 400;
+    text-align: center;
+}
+
+
+/* Action buttons */
+
+#actionButtons {
+    display: flex;
+    justify-content: center;
+}
+
+#actionButtons .button{
+    width: 45%;
+    margin: 1rem 2rem;
+}
+
+.playButton {
+    color:#fff;
+    background-color: #f00;
+}
+
+/* Timer */
+
+#timer {
+    flex-basis: 100%;
+    margin-top: 2rem;
+    display: none;
+    /* Below display for working timer: */
+    /* display: block; */
+}
+
+/*
+////////////////////////////////////////////////
+FOOTER
+////////////////////////////////////////////////
+*/
+footer {
+    color: #fff;
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+}
+
+footer p {
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    align-self: center;
+}
+
+
+/* MEDIA QUERIES TO DO 
+
+@media  {
+
+} */

@@ -7,13 +7,48 @@
     <title>CodersCamp2020 | Star Wars API QUIZ</title>
     <link rel="stylesheet" href="styles/App.css"/>
 
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-          rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 </head>
+
 <body>
 
-<div id="swquiz-app">
-</div>
+    <main>
+        <div class="logoImgSettings">
+            <div id="logo"></div>
+            <div id="img" class="boxShadow"></div>
+            <button id="settingsButton" class="button hoverCursor"><h3> Settings </h3></button>
+        </div>
+
+        <div class="gameArea">
+            <div id="changeGameMode" class="bgdiv boxShadow">
+                <button id="gameMode1" class="button gameModeButton hoverCursor"><h2> People</h2></button>
+                <button id="gameMode2" class="button gameModeButton hoverCursor"><h2> Vehicles</h2></button>
+                <button id="gameMode3" class="button gameModeButton hoverCursor"><h2> Starships</h2></button>
+            </div>
+
+            <div id="currentGameMode" class="bgdiv boxShadow"><h1>MODE: Who is the character?</h1></div>
+
+            <div id="currentGameModeDescription" class="bgdiv">
+                <h3>Mode Rules</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque dignissim rutrum erat a malesuada. Sed non tristique dolor, vitae iaculis justo. Mauris pharetra neque arcu, sit amet mollis velit volutpat quis. Aenean egestas aliquam nibh, id ultricies risus tincidunt id. Praesent ultrices orci turpis, sit amet sodales nibh congue vitae.</p>
+            </div>
+
+            <div id="actionButtons">
+                <button id="bestOrRules" class="button actionButton hoverCursor"><h3> Hall of Fame </h3></button>
+                <button id="playGame" class="button actionButton hoverCursor boxShadow playButton"><h3> PLAY THE GAME </h3></button>
+            </div>
+        </div>
+
+        <div id="timer">
+            <img src="./static/assets/ui/LightsaberHandle.png" alt="Lightsaber Handle">
+
+        </div>
+
+    </main>
+
+    <footer>
+        <p> Created by Arleta Jedrzejczak Team - CodersCamp 2020 </p>
+    </footer>
 
 <script src="src/index.js"></script>
 </body>
