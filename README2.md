@@ -71,4 +71,4 @@ Każdy swój najlepszy wynik można zapisać do tablicy wyników !!!
 	![opis zdjęcia](./img_readme/5.PNG)
 
 ### Użyte czcionki:
-1. [Font Montserrat] (https://fonts.google.com/specimen/Montserrat?query=Montserrat „Font Montserrat”)
+1. [Font Montserrat](https://fonts.google.com/specimen/Montserrat?query=Montserrat „Font Montserrat”)
