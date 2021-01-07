@@ -16,7 +16,7 @@ body {
     background-repeat: no-repeat;
     background-size:cover;
     padding: 3rem;
-    /* height: 100%; */
+    margin: auto auto;
 }
 
 .bgdiv {
@@ -64,7 +64,7 @@ LOGO IMG SETTING
 #logo {
     background-image: url("../static/assets/ui/StarWarsLogo.png");
     background-repeat: no-repeat;
-    background-size: contain;
+    background-size: cover;
     width: 35rem;
     height: 19.6rem;
 }
@@ -284,6 +284,12 @@ footer p {
 
 
 @media only screen and (min-width: 576px) and (max-width: 767px) {
+
+    body {
+        padding: 0.5rem;
+        /* margin auto auto; */
+    }
+
     #settingsButton {
         order:2;
     }
@@ -291,7 +297,7 @@ footer p {
     #img {
         order:3;
         position: absolute;
-        top: 56rem;
+        top: 54rem;
     }
 
     #changeGameMode {
@@ -320,6 +326,15 @@ footer p {
         font-size: 2.5rem;
     }
 
+    #currentGameModeDescription p {
+        font-size: 2rem;
+        padding: 0.5rem 0.5rem;
+    }
+
+    #currentGameModeDescription * {
+        margin: 0.5rem auto;
+    }
+
     .button {
         font-size: 2.2rem;
         font-weight: 600;
@@ -327,6 +342,10 @@ footer p {
 }
 
 @media only screen and (max-width: 575px) {
+    body {
+        padding: 0.5rem;
+    }
+
     #settingsButton {
         order:2;
     }
@@ -334,7 +353,7 @@ footer p {
     #img {
         order:3;
         position: absolute;
-        top: 64rem;
+        top: 62rem;
     }
 
     #changeGameMode {
@@ -362,6 +381,20 @@ footer p {
     #currentGameMode {  
         padding: 1.5rem;      
         font-size: 2.5rem;
+    }
+
+    .gameModeButton:hover::before{
+        left:25%;
+        width:50%;
+    }
+
+    #currentGameModeDescription * {
+        margin: 0.5rem auto;
+    }
+
+    #currentGameModeDescription p {
+        font-size: 2rem;
+        padding: 0.5rem 0.5rem;
     }
 
     .button {
