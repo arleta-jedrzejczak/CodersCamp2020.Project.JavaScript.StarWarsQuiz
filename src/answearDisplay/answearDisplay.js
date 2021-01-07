@@ -24,3 +24,6 @@ class answearDisplay {
         }
     }
 }
+
+// export answearDisplay class
+export default answearDisplay;
