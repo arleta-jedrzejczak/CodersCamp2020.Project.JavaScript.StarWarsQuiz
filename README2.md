@@ -56,19 +56,19 @@ Każdy swój najlepszy wynik można zapisać do tablicy wyników !!!
 
 ### Przykładowe miejsca realizacji założeń:
 * Przykład 1 – opis przykład 1 
-	! [opis zdjęcia](./img_readme/1.PNG)
+	![opis zdjęcia](./img_readme/1.PNG)
 
 * Przykład 2 – opis przykład 2 
-	! [opis zdjęcia](./img_readme/2.PNG)
+	![opis zdjęcia](./img_readme/2.PNG)
 
 * Przykład 3 – opis przykład 3 
-	! [opis zdjęcia](./img_readme/3.PNG)
+	![opis zdjęcia](./img_readme/3.PNG)
 
 * Przykład 4 – opis przykład 4 
-	! [opis zdjęcia](./img_readme/4.PNG)
+	![opis zdjęcia](./img_readme/4.PNG)
 
 * Przykład 5 – opis przykład 5 
-	! [opis zdjęcia](./img_readme/5.PNG)
+	![opis zdjęcia](./img_readme/5.PNG)
 
 ### Użyte czcionki:
 1. [Font Montserrat] (https://fonts.google.com/specimen/Montserrat?query=Montserrat „Font Montserrat”)
