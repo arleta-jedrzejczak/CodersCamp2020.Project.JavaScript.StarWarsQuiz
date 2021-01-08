@@ -1,34 +1,34 @@
 // Creating answearDisplay class
-var element = document.getElementById('1');
-var answear = false;
 
 class answearDisplay {
     constructor(answear, element){
         this.answear = answear;
         this.element = element;
-        this.answearColor();
+        this.answearColor();    
     }
 
     answearColor(){
         if(this.answear){
-            this.element.classList.add('correctAnswear')
+            this.element.setAttribute("style", `
+                background: #41ED25;
+                box-shadow:  0px 4px 30px #51FC00; 
+            `)
         }else{
-            this.element.classList.add('incorrectAnswear')
+            this.element.setAttribute("style", `
+                background: #FF0000;
+                box-shadow:  0px 4px 30px #FF0000;
+            `)
         }
         setTimeout(this.answearTimeDisplay,1000);
     }
 
     answearTimeDisplay(){
-        if(this.answear){
-            this.element.classList.remove("correctAnswear")
-        }else{
-            this.element.classList.remove("incorrectAnswear")
-        }
+        this.element.setAttribute("style", `
+            background: #FFFFFF;
+            box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        `)
     }
 }
 
-
-let answear1 = new answearDisplay(answear, element);
-answear1.answearColor();
-// // export answearDisplay class
-// export default answearDisplay;
+// export answearDisplay class
+export default answearDisplay;
