@@ -61,7 +61,7 @@ LOGO IMG SETTING
 ///////////////////////////
 */
 
-#logo {
+.logo {
     background-image: url("../static/assets/ui/StarWarsLogo.png");
     background-repeat: no-repeat;
     background-size: cover;
@@ -80,7 +80,7 @@ LOGO IMG SETTING
     margin: 1rem;
 }
 
-#img {
+.img {
     background-image: url("../static/assets/img/modes/people/1.jpg");
     height: 48.125rem;
     width: 35rem;
@@ -89,7 +89,7 @@ LOGO IMG SETTING
     border-radius: 5rem;
 }
 
-#settingsButton {
+.settingsButton {
     width: 80%;
     /* Below display for working timer */
     /* display:none; */
@@ -110,7 +110,7 @@ GAME AREA
 
 /* Change Game Mode */
 
-#changeGameMode {
+.changeGameMode {
     display: flex;
     justify-content: space-around;
     padding: 4rem;
@@ -140,7 +140,7 @@ GAME AREA
 }
 
 /* Current Game Mode */
-#currentGameMode {
+.currentGameMode {
     padding: 5rem;
     text-align: center;
     font-size: 3rem;
@@ -149,22 +149,22 @@ GAME AREA
 
 /* Current Game Mode Description */
 
-#currentGameModeDescription {
+.currentGameModeDescription {
     text-align: center;
     min-height: 30rem;
 
 }
 
-#currentGameModeDescription * {
+.currentGameModeDescription * {
     margin: 2rem auto; 
 }
 
-#currentGameModeDescription h3 {
+.currentGameModeDescription h3 {
     font-size: 4rem;
     font-weight: 600;
 }
 
-#currentGameModeDescription p {
+.currentGameModeDescription p {
     padding: 1rem 4rem;
     font-size: 2.5rem;
     font-weight: 400;
@@ -174,12 +174,12 @@ GAME AREA
 
 /* Action buttons */
 
-#actionButtons {
+.actionButtons {
     display: flex;
     justify-content: center;
 }
 
-#actionButtons .button{
+.actionButtons .button{
     width: 45%;
     margin: 1rem 2rem;
     text-align: center;
@@ -188,16 +188,6 @@ GAME AREA
 .playButton {
     color:#fff;
     background-color: #f00;
-}
-
-/* Timer */
-
-#timer {
-    flex-basis: 100%;
-    margin-top: 2rem;
-    display: none;
-    /* Below display for working timer: */
-    /* display: block; */
 }
 
 /*
@@ -221,12 +211,12 @@ footer p {
 
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
 
-    #logo {
+    .logo {
         width: 25rem;
         height: 14rem;
     }
 
-    #img {
+    .img {
         height: 34.375rem;
         width: 25rem;
     }
@@ -236,11 +226,11 @@ footer p {
         font-weight: 600;
     }
 
-    #currentGameMode {        
+    .currentGameMode {        
         font-size: 2.5rem;
     }
 
-    #changeGameMode {
+    .changeGameMode {
         margin-bottom: 6rem;
     }
 
@@ -250,14 +240,13 @@ footer p {
 
 }
 
-
 @media only screen and (min-width: 768px) and (max-width: 991px) {
-    #logo {
+    .logo {
         width: 25rem;
         height: 14rem;
     }
 
-    #img {
+    .img {
         height: 34.375rem;
         width: 25rem;
     }
@@ -267,12 +256,12 @@ footer p {
         font-weight: 600;
     }
 
-    #currentGameMode {  
+    .currentGameMode {  
         padding: 2rem;      
         font-size: 2rem;
     }
 
-    #changeGameMode {
+    .changeGameMode {
         padding: 2rem;
         margin-bottom: 4rem;
     }
@@ -290,17 +279,17 @@ footer p {
         /* margin auto auto; */
     }
 
-    #settingsButton {
+    .settingsButton {
         order:2;
     }
 
-    #img {
+    .img {
         order:3;
         position: absolute;
         top: 54rem;
     }
 
-    #changeGameMode {
+    .changeGameMode {
         margin-bottom: 42rem;
         padding: 2rem;
     }
@@ -309,29 +298,29 @@ footer p {
         width: 100%;
     }
 
-    #logo {
+    .logo {
         --width: 45rem;
         width: var(--width);
         height: calc(var(--width) * 0.56);
     }
 
-    #img {
+    .img {
         --width: 25rem;
         width: var(--width);
         height: calc(var(--width) * 1.495);
     }
 
-    #currentGameMode {  
+    .currentGameMode {  
         padding: 1.5rem;      
         font-size: 2.5rem;
     }
 
-    #currentGameModeDescription p {
+    .currentGameModeDescription p {
         font-size: 2rem;
         padding: 0.5rem 0.5rem;
     }
 
-    #currentGameModeDescription * {
+    .currentGameModeDescription * {
         margin: 0.5rem auto;
     }
 
@@ -346,17 +335,17 @@ footer p {
         padding: 0.5rem;
     }
 
-    #settingsButton {
+    .settingsButton {
         order:2;
     }
     
-    #img {
+    .img {
         order:3;
         position: absolute;
         top: 62rem;
     }
 
-    #changeGameMode {
+    .changeGameMode {
         flex-direction: column;
         margin-bottom: 42rem;
         padding: 2rem;
@@ -366,19 +355,19 @@ footer p {
         width: 100%;
     }
 
-    #logo {
+    .logo {
         --width: 30rem;
         width: var(--width);
         height: calc(var(--width) * 0.56);
     }
     
-    #img {
+    .img {
         --width: 25rem;
         width: var(--width);
         height: calc(var(--width) * 1.495);
     }
 
-    #currentGameMode {  
+    .currentGameMode {  
         padding: 1.5rem;      
         font-size: 2.5rem;
     }
@@ -388,11 +377,11 @@ footer p {
         width:50%;
     }
 
-    #currentGameModeDescription * {
+    .currentGameModeDescription * {
         margin: 0.5rem auto;
     }
 
-    #currentGameModeDescription p {
+    .currentGameModeDescription p {
         font-size: 2rem;
         padding: 0.5rem 0.5rem;
     }
@@ -402,7 +391,7 @@ footer p {
         font-weight: 600;
     }
 
-    #actionButtons .button{
+    .actionButtons .button{
         width: 48%;
         margin: 1rem 1rem;
     }
