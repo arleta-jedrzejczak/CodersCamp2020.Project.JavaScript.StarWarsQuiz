@@ -6,5 +6,3 @@ export const App = ({options}) => {
     // First argument 'answear' boolean, is responsible for checking correct answear
     // Second is ID of a DOMelement which should be colored
 }
-
-
