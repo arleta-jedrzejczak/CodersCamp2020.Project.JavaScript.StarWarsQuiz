@@ -1,9 +1,9 @@
 // Creating answearDisplay class
 
 class answearDisplay {
-    constructor(answear, element){
+    constructor(answear, elementId){
         this.answear = answear;
-        this.element = element;
+        this.element = document.getElementById(elementId);
         this.answearColor();    
     }
 

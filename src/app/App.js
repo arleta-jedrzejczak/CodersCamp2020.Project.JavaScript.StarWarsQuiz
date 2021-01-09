@@ -2,9 +2,9 @@ import answearDisplay from '../answearDisplay/answearDisplay'
 
 export const App = ({options}) => {
     
-    this.answearDisplay = new answearDisplay(answear, element);
+    this.answearDisplay = new answearDisplay(answear, elementId);
     // First argument 'answear' boolean, is responsible for checking correct answear
-    // Second is a HTMLDOMelement which should be colored
+    // Second is ID of a DOMelement which should be colored
 }
 
 
