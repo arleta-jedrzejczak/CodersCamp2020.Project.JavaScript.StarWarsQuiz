@@ -1,7 +1,8 @@
-import Rules from '../rules/rules'
+import answearDisplay from '../answearDisplay/answearDisplay'
 
 export const App = ({options}) => {
-      this.rules = new Rules('starships-intro')   // characters-intro | vehicles-intro | starships-intro | characters-question | vehicles-question | starships-question
+    
+    this.answearDisplay = new answearDisplay(answear, elementId);
+    // First argument 'answear' boolean, is responsible for checking correct answear
+    // Second is ID of a DOMelement which should be colored
 }
-
-
