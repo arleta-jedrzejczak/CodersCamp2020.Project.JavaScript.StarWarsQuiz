@@ -1,0 +1,39 @@
+/*
+////////////////////////////
+LOGO IMG SETTING
+///////////////////////////
+*/
+
+.logo {
+    background-image: url("../static/assets/ui/StarWarsLogo.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 35rem;
+    height: 19.6rem;
+}
+
+.logoImgSettings {
+    display:flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.logoImgSettings * {
+    margin: 1rem;
+}
+
+.img {
+    background-image: url("../static/assets/img/modes/people/1.jpg");
+    height: 48.125rem;
+    width: 35rem;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 5rem;
+}
+
+.settingsButton {
+    width: 80%;
+    /* Below display for working timer */
+    /* display:none; */
+}

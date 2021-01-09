@@ -1,4 +1,7 @@
 @import url(./reset.css);
+@import url(./logoImgSettingsSection.css);
+@import url(./gameAreaSection.css);
+
 
 /*
 ////////////////////////////////////////////////
@@ -33,10 +36,13 @@ body {
     display: block;
     height: 8rem;
     border-radius: 2rem;
-    border: 1px solid #000;
     font-size: 3rem;
-    color: #000;
+    /* color: #000; */
     font-weight: 600;
+}
+
+.borderButton {
+    border: 1px solid #000;
 }
 
 .hoverCursor:hover{
@@ -55,140 +61,6 @@ main{
     justify-content: space-around;
 }
 
-/*
-////////////////////////////
-LOGO IMG SETTING
-///////////////////////////
-*/
-
-.logo {
-    background-image: url("../static/assets/ui/StarWarsLogo.png");
-    background-repeat: no-repeat;
-    background-size: cover;
-    width: 35rem;
-    height: 19.6rem;
-}
-
-.logoImgSettings {
-    display:flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
-}
-
-.logoImgSettings * {
-    margin: 1rem;
-}
-
-.img {
-    background-image: url("../static/assets/img/modes/people/1.jpg");
-    height: 48.125rem;
-    width: 35rem;
-    background-repeat: no-repeat;
-    background-size: cover;
-    border-radius: 5rem;
-}
-
-.settingsButton {
-    width: 80%;
-    /* Below display for working timer */
-    /* display:none; */
-}
-
-/*
-////////////////////////////
-GAME AREA
-///////////////////////////
-*/
-
-.gameArea {
-    display: flex;
-    flex-direction: column;
-    width: 60%;
-    margin: 1rem 0;
-}
-
-/* Change Game Mode */
-
-.changeGameMode {
-    display: flex;
-    justify-content: space-around;
-    padding: 4rem;
-    margin-bottom: 10rem;
-}
-
-.gameModeButton{
-    background-color: rgba(0,0,0,0);
-    border: none;
-    color: #e6e6e6;
-}
-
-.gameModeButton:hover{
-    position:relative;
-    color:#000;
-}
-
-.gameModeButton:hover::before{
-    content:'';
-    position:absolute;
-    bottom:-2px;
-    left:0;
-    width:100%;
-    height:5px;
-    background:red;
-    box-shadow:0 0 25px 5px  red;
-}
-
-/* Current Game Mode */
-.currentGameMode {
-    padding: 5rem;
-    text-align: center;
-    font-size: 3rem;
-    font-weight: 700;
-}
-
-/* Current Game Mode Description */
-
-.currentGameModeDescription {
-    text-align: center;
-    min-height: 30rem;
-
-}
-
-.currentGameModeDescription * {
-    margin: 2rem auto; 
-}
-
-.currentGameModeDescription h3 {
-    font-size: 4rem;
-    font-weight: 600;
-}
-
-.currentGameModeDescription p {
-    padding: 1rem 4rem;
-    font-size: 2.5rem;
-    font-weight: 400;
-    text-align: center;
-}
-
-
-/* Action buttons */
-
-.actionButtons {
-    display: flex;
-    justify-content: center;
-}
-
-.actionButtons .button{
-    width: 45%;
-    margin: 1rem 2rem;
-    text-align: center;
-}
-
-.playButton {
-    color:#fff;
-    background-color: #f00;
-}
 
 /*
 ////////////////////////////////////////////////
@@ -271,7 +143,6 @@ footer p {
     }
 }
 
-
 @media only screen and (min-width: 576px) and (max-width: 767px) {
 
     body {
@@ -334,7 +205,7 @@ footer p {
     body {
         padding: 0.5rem;
     }
-
+    
     .settingsButton {
         order:2;
     }
@@ -344,17 +215,17 @@ footer p {
         position: absolute;
         top: 62rem;
     }
-
+    
     .changeGameMode {
         flex-direction: column;
         margin-bottom: 42rem;
         padding: 2rem;
     }
-
+    
     .gameArea {
         width: 100%;
     }
-
+    
     .logo {
         --width: 30rem;
         width: var(--width);
@@ -366,31 +237,31 @@ footer p {
         width: var(--width);
         height: calc(var(--width) * 1.495);
     }
-
+    
     .currentGameMode {  
         padding: 1.5rem;      
         font-size: 2.5rem;
     }
-
+    
     .gameModeButton:hover::before{
         left:25%;
         width:50%;
     }
-
+    
     .currentGameModeDescription * {
         margin: 0.5rem auto;
     }
-
+    
     .currentGameModeDescription p {
         font-size: 2rem;
         padding: 0.5rem 0.5rem;
     }
-
+    
     .button {
         font-size: 2.2rem;
         font-weight: 600;
     }
-
+    
     .actionButtons .button{
         width: 48%;
         margin: 1rem 1rem;
