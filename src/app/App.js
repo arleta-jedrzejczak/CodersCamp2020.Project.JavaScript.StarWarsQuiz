@@ -1,8 +1,8 @@
-import Timer from './components/timer/timer.component';
-class App {
-    constructor(options) {
-        this.timer = new Timer('timer');
-    }
-}
+// import Timer from './components/timer/timer.component';
+// class App {
+//     constructor(options) {
+//         this.timer = new Timer('timer');
+//     }
+// }
 
-export default App
+// export default App

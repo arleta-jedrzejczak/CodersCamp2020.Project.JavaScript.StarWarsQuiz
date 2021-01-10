@@ -12,25 +12,24 @@
 </head>
 <body>
 
-<div id="swquiz-app">
-    <div id="timer">
-        <div id=lightsaber>
-            <img src="static/assets/ui/LightsaberHandle.png" alt="Lightsaber">
+<div class="swquiz-app">
+    <div class="timer">
+
+        <div class="lightsaber">
         </div>
-    
-        <div id=parr>
-            <div id="myProgress">
-                <div id="myBar"></div>
-            </div>
+        
+        <div class="myProgress">
+            <div class="myBar"></div>
         </div>
-    </div>
-    
-    <div id=counter></div>
+
+        <div class="counter"></div>  
+
     </div>
 </div>
 
 <script src="src/index.js"></script>
-<script src="src/app/counter.js"></script>
-<script src="src/app/lightsaber.js"></script>
+<script src="src/app/components/timer/counter.js"></script>
+<script src="src/app/components/timer/lightsaber.js"></script>
+<script src="src/app/App.js"></script>
 </body>
 </html>
