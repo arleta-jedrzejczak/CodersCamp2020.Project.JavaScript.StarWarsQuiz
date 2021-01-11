@@ -1,0 +1,18 @@
+.ranking-table {
+  width: 90%;
+  font-size: 3rem;
+}
+
+.ranking-table th {
+  text-align: left;
+}
+
+.ranking-header {
+  font-size: 3.5rem;
+  text-align: center;
+}
+
+.ranking-header::before {
+  content: url('/static/assets/icons/contacts_24px.png');
+  padding-right: 2rem;
+}
