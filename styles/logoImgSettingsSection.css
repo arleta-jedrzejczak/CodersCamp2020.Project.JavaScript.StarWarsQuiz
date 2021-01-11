@@ -3,15 +3,6 @@
 LOGO IMG SETTING
 ///////////////////////////
 */
-
-.logo {
-    background-image: url("../static/assets/ui/StarWarsLogo.png");
-    background-repeat: no-repeat;
-    background-size: cover;
-    width: 35rem;
-    height: 19.6rem;
-}
-
 .logoImgSettings {
     display:flex;
     flex-direction: column;
@@ -23,6 +14,14 @@ LOGO IMG SETTING
     margin: 1rem;
 }
 
+.logo {
+    background-image: url("../static/assets/ui/StarWarsLogo.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 35rem;
+    height: 19.6rem;
+}
+
 .img {
     background-image: url("../static/assets/img/modes/people/1.jpg");
     height: 48.125rem;
@@ -30,10 +29,4 @@ LOGO IMG SETTING
     background-repeat: no-repeat;
     background-size: cover;
     border-radius: 5rem;
-}
-
-.settingsButton {
-    width: 80%;
-    /* Below display for working timer */
-    /* display:none; */
 }

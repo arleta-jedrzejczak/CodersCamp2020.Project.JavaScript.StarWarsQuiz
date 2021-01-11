@@ -22,11 +22,11 @@
 ## Zasady gry:
 * Zasady gry polegają na wyborze poprawnej odpowiedzi spośród 4 możliwości. Zadaniem gracza jest określić nazwę postaci, pojazdu lub statku kosmicznego. Odpowiedź trzeba dopasować w kontekście do aktualnie wyświetlającego się zdjęcia.
 
-Czas rozgrywki to 2 minuty, podczas których staramy się osiągnąć jak najwyższy wynik punktowy. 
+* Czas rozgrywki to 2 minuty, podczas których staramy się osiągnąć jak najwyższy wynik punktowy. 
 
-Po zakończonej rozgrywce dostaniemy swój wynik wraz z wynikiem przeciwnika, którym jest komputer. 
+* Po zakończonej rozgrywce dostaniemy swój wynik wraz z wynikiem przeciwnika, którym jest komputer. 
 
-Każdy swój najlepszy wynik można zapisać do tablicy wyników !!!
+* Każdy swój najlepszy wynik można zapisać do tablicy wyników !!!
 
 * Zapraszamy do gry w nasz Quiz !
 ## Zrealizowane założenia w projekcie:
@@ -55,19 +55,19 @@ Każdy swój najlepszy wynik można zapisać do tablicy wyników !!!
 * pisanie testów jednostkowych
 
 ### Przykładowe miejsca realizacji założeń:
-* Przykład 1 – opis przykład 1 
+* Przykład 1 – opis przykład 1  
 	![opis zdjęcia](./img_readme/1.PNG)
 
-* Przykład 2 – opis przykład 2 
+* Przykład 2 – opis przykład 2  
 	![opis zdjęcia](./img_readme/2.PNG)
 
-* Przykład 3 – opis przykład 3 
+* Przykład 3 – opis przykład 3  
 	![opis zdjęcia](./img_readme/3.PNG)
 
-* Przykład 4 – opis przykład 4 
+* Przykład 4 – opis przykład 4  
 	![opis zdjęcia](./img_readme/4.PNG)
 
-* Przykład 5 – opis przykład 5 
+* Przykład 5 – opis przykład 5  
 	![opis zdjęcia](./img_readme/5.PNG)
 
 ### Użyte czcionki:

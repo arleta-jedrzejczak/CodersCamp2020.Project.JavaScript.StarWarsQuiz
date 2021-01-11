@@ -1,14 +1,11 @@
 @import url(./reset.css);
 @import url(./logoImgSettingsSection.css);
 @import url(./gameAreaSection.css);
-
-
 /*
 ////////////////////////////////////////////////
 GENERAL
 ////////////////////////////////////////////////
 */
-
 html {
     font-size: 10px;
     font-family: 'Montserrat', sans-serif;
@@ -41,27 +38,19 @@ body {
     font-weight: 600;
 }
 
-.borderButton {
-    border: 1px solid #000;
-}
-
 .hoverCursor:hover{
     cursor: pointer;
 }
-
 /*
 ////////////////////////////////////////////////
 MAIN
 ////////////////////////////////////////////////
 */
-
 main{
     display: flex; 
     flex-wrap: wrap;
     justify-content: space-around;
 }
-
-
 /*
 ////////////////////////////////////////////////
 FOOTER
@@ -98,10 +87,6 @@ footer p {
         font-weight: 600;
     }
 
-    .currentGameMode {        
-        font-size: 2.5rem;
-    }
-
     .changeGameMode {
         margin-bottom: 6rem;
     }
@@ -128,11 +113,6 @@ footer p {
         font-weight: 600;
     }
 
-    .currentGameMode {  
-        padding: 2rem;      
-        font-size: 2rem;
-    }
-
     .changeGameMode {
         padding: 2rem;
         margin-bottom: 4rem;
@@ -147,26 +127,6 @@ footer p {
 
     body {
         padding: 0.5rem;
-        /* margin auto auto; */
-    }
-
-    .settingsButton {
-        order:2;
-    }
-
-    .img {
-        order:3;
-        position: absolute;
-        top: 54rem;
-    }
-
-    .changeGameMode {
-        margin-bottom: 42rem;
-        padding: 2rem;
-    }
-
-    .gameArea {
-        width: 100%;
     }
 
     .logo {
@@ -176,23 +136,21 @@ footer p {
     }
 
     .img {
+        order:3;
+        position: absolute;
+        top: 54rem;
         --width: 25rem;
         width: var(--width);
         height: calc(var(--width) * 1.495);
     }
 
-    .currentGameMode {  
-        padding: 1.5rem;      
-        font-size: 2.5rem;
+    .changeGameMode {
+        margin-bottom: 42rem;
+        padding: 2rem;
     }
 
-    .currentGameModeDescription p {
-        font-size: 2rem;
-        padding: 0.5rem 0.5rem;
-    }
-
-    .currentGameModeDescription * {
-        margin: 0.5rem auto;
+    .gameArea {
+        width: 100%;
     }
 
     .button {
@@ -205,65 +163,39 @@ footer p {
     body {
         padding: 0.5rem;
     }
-    
-    .settingsButton {
-        order:2;
-    }
-    
+
     .img {
         order:3;
         position: absolute;
         top: 62rem;
+        --width: 25rem;
+        width: var(--width);
+        height: calc(var(--width) * 1.495);
     }
-    
+
     .changeGameMode {
         flex-direction: column;
         margin-bottom: 42rem;
         padding: 2rem;
     }
-    
+
     .gameArea {
         width: 100%;
     }
-    
+
     .logo {
         --width: 30rem;
         width: var(--width);
         height: calc(var(--width) * 0.56);
     }
-    
-    .img {
-        --width: 25rem;
-        width: var(--width);
-        height: calc(var(--width) * 1.495);
-    }
-    
-    .currentGameMode {  
-        padding: 1.5rem;      
-        font-size: 2.5rem;
-    }
-    
+
     .gameModeButton:hover::before{
         left:25%;
         width:50%;
     }
-    
-    .currentGameModeDescription * {
-        margin: 0.5rem auto;
-    }
-    
-    .currentGameModeDescription p {
-        font-size: 2rem;
-        padding: 0.5rem 0.5rem;
-    }
-    
+
     .button {
         font-size: 2.2rem;
         font-weight: 600;
-    }
-    
-    .actionButtons .button{
-        width: 48%;
-        margin: 1rem 1rem;
     }
 }
