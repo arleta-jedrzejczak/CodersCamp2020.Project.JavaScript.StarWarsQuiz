@@ -9,7 +9,7 @@ const QUIZ_MAX_TIME = process.env.QUIZ_MAX_TIME_SECONDS ? process.env.QUIZ_MAX_T
 window.onload = () => App({options: {
     swApiBaseUrl: SW_API_BASE_URL, 
     quizMaxTime: QUIZ_MAX_TIME, 
-    changer: changerGameMode(),
+    
 }})
 
 
