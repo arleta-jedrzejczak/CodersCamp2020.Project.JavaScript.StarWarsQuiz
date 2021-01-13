@@ -78,10 +78,3 @@ creatingButton("Starships");
 document.querySelector("#buttonPeople").addEventListener("click", creatingButtonPeopleActive);
 document.querySelector("#buttonVehicles").addEventListener("click", creatingButtonVehiclesActive);
 document.querySelector("#buttonStarships").addEventListener("click", creatingButtonStarshipsActive);
-
-
-
-
-
-
-
