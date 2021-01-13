@@ -1,7 +1,12 @@
-import { MainMenu } from "../mainMenu/mainMenu"
+import MainMenu from "../mainMenu/mainMenu"
 
-export const App = ({options}) => {
-     this.mainmenu = new MainMenu();
+
+console.log("raz")
+
+class App {
+    constructor(options) {
+        this.mainmenu = new MainMenu();
+    }
 }
 
-
+export default App;

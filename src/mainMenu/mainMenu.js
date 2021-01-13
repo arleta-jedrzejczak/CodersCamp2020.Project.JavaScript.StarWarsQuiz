@@ -1,8 +1,10 @@
 class MainMenu {
 
     constructor() {
+        console.log("jeden")
         this.createMainMenu();
         this.addListeners();
+        console.log("dwa")
     }
 
     creatingButtonContainer (name) {
