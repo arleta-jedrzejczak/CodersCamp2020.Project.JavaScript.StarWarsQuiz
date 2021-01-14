@@ -1,6 +1,7 @@
 import answearDisplay from '../answearDisplay/answearDisplay'
 import Rules from '../rules/rules'
 import GameOver from '../gameOver/gameOver'
+import {data} from '../gameOver/data'
 
 export const App = ({options}) => {
     
@@ -10,5 +11,5 @@ export const App = ({options}) => {
 
     // this.rules = new Rules('starships-intro')   // characters-intro | vehicles-intro | starships-intro | characters-question | vehicles-question | starships-question
 
-    this.gameover=new GameOver()
+    this.gameover=new GameOver(data)
 }
