@@ -1,3 +1,4 @@
+//this is the old implementation and this file will be deleted!
 // some dummy date
 // get to know: what will look like our player data
 let players = [
