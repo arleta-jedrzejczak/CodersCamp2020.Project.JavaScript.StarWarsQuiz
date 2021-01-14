@@ -6,4 +6,10 @@ body {
     font-size: 10px;
 }
 
+.visible{
+    visibility: visible;
+}
 
+.hidden{
+    visibility: hidden;
+}

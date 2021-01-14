@@ -1,33 +1,31 @@
+class Counter {
+    countDownEl = document.querySelector('#counter');
+    time = 120;
+    idTimer = setInterval(() => this.checkGame(), 1000);
+    
+    constructor(gameStarted) {
+        this.gameStarted = gameStarted;
+    }
 
-const idTimer = setInterval(checkGame1, 1000);
+    checkGame() {
 
-let time = 120;
-let start1 = true;
-
-let countDownEl = document.getElementsByClassName("counter")[0];
-countDownEl.style.visibility = 'visible';
-
-function checkGame1(){
-
-    if(start1 === true){
-        if(time>0){
-        
-            const minutes = Math.floor(time/60);
-            let seconds = time % 60;
-            seconds = seconds<10 ? '0'+seconds : seconds;
-            countDownEl.innerHTML = ` Time Left: ${minutes}m ${seconds}s`;
-            time--;
+        if(this.gameStarted){
+            if(this.time > 0) {
+                let minutes = Math.floor(time/60);
+                let seconds = time % 60;
+                seconds = seconds<10 ? '0'+seconds : seconds;
+                this.countDownEl.innerHTML = ` Time Left: ${minutes}m ${seconds}s`;
+                time--;
+            }
+            else {
+                this.gameStarted = false;
+                this.countDownEl.innerHTML = ` Time Left: 0m 00s`;    
+            }
         }
         else{
-            start1 = false;
-            countDownEl.innerHTML = ` Time Left: 0m 00s`;    
+            clearInterval(this.idTimer);
         }
     }
-    else{
-        clearInterval(idTimer);
-        countDownEl.style.visibility = 'hidden';
-    }
 }
-
-
-module.exports.checkGame1 = checkGame1;
+let counter = new Counter(true);
+// export default Counter;
