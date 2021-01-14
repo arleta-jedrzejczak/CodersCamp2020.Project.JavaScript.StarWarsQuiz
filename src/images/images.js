@@ -1,6 +1,6 @@
 
 // types: People, Vehicles, Starships
-creatingButtonContainer (type)  {
+function creatingButtonContainer (type) {
     const imgContainer = document.createElement('div');
     mainMenuContainer.id = `img${type}`;
     mainMenuContainer.style=
