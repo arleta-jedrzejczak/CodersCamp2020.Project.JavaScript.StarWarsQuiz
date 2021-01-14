@@ -11,5 +11,4 @@ export const App = ({options}) => {
     // this.rules = new Rules('starships-intro')   // characters-intro | vehicles-intro | starships-intro | characters-question | vehicles-question | starships-question
 
     this.gameover=new GameOver()
-    console.log('app js');
 }
