@@ -8,11 +8,11 @@ LOGO IMG SETTING
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
-}
-
-.logoImgSettings * {
     margin: 1rem;
 }
+
+/* .logoImgSettings * {
+} */
 
 .logo {
     background-image: url("../static/assets/ui/StarWarsLogo.png");
