@@ -1,10 +1,8 @@
 class MainMenu {
 
     constructor() {
-        console.log("jeden")
         this.createMainMenu();
         this.addListeners();
-        console.log("dwa")
     }
 
     creatingButtonContainer (name) {
@@ -53,20 +51,19 @@ class MainMenu {
         isActiveVehicle === "true" ? buttonVehicles.style.color = "#000" : buttonVehicles.style.color = "#e6e6e6";
         isActiveStarships === "true" ? buttonStarships.style.color = "#000" : buttonStarships.style.color = "#e6e6e6";
     };
-    
+
     creatingButtonPeopleActive() {
         buttonPeople.setAttribute("isActive", "true");
         buttonVehicles.setAttribute("isActive", "false")
         buttonStarships.setAttribute("isActive", "false")
     
         this.puttingCorrectColor();
-    
     };
     
     creatingButtonVehiclesActive() {
         buttonPeople.setAttribute("isActive", "false");
-        buttonVehicles.setAttribute("isActive", "true")
-        buttonStarships.setAttribute("isActive", "false")
+        buttonVehicles.setAttribute("isActive", "true");
+        buttonStarships.setAttribute("isActive", "false");
     
         this.puttingCorrectColor();
     };
@@ -87,9 +84,9 @@ class MainMenu {
     }
 
     addListeners() {
-        document.querySelector("#buttonPeople").addEventListener("click", this.creatingButtonPeopleActive);
-        document.querySelector("#buttonVehicles").addEventListener("click", this.creatingButtonVehiclesActive);
-        document.querySelector("#buttonStarships").addEventListener("click", this.creatingButtonStarshipsActive);
+        document.querySelector("#buttonPeople").addEventListener("click", () => this.creatingButtonPeopleActive());
+        document.querySelector("#buttonVehicles").addEventListener("click", () => this.creatingButtonVehiclesActive());
+        document.querySelector("#buttonStarships").addEventListener("click", () => this.creatingButtonStarshipsActive());
     }
 }
 
