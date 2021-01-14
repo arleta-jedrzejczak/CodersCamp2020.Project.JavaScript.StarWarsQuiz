@@ -1,5 +1,5 @@
-import Counter from './components/timer/counter';
-import Lightsaber from './components/timer/lightsaber';
+import {Counter} from './components/timer/counter';
+import {Lightsaber} from './components/timer/lightsaber';
 
 
 class App {
@@ -11,4 +11,4 @@ class App {
     }
 }
 
-export default App
+export default App;
