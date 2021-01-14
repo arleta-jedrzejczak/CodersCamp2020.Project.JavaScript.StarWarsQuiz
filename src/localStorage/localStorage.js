@@ -8,7 +8,7 @@ class localStorage {
     }
 
     save(obj){
-        if(Object.keys(empty).length === 0 && empty.constructor === Object){
+        if(Object.keys(obj).length === 0 && empty.constructor === Object){
             if(typeof obj.player === "string"){
                 if(typeof obj.answered === "number"){
                     return tab.push(obj);
@@ -24,8 +24,8 @@ class localStorage {
     }
 
     getScore(){
-        if(this.tab.length !== 0){
-            let len = this.tab.length;
+        let len = this.tab.length;
+        if(len !== 0){
             let flag;
             do{
                 flag = false;
@@ -38,9 +38,15 @@ class localStorage {
                     }
                 }
             } while(flag);
-            for(let i = 0; i < 3; i++){
-                this.highScoreTab[i] = this.tab[i];
-            }
+            if(len > 3){
+                for(let i = 0; i < 3; i++){
+                    this.highScoreTab[i] = this.tab[i];
+                }
+            }else if(len < 3){
+                for(let i = 0; i < len; i++){
+                    this.highScoreTab[i] = this.tab[i];
+                }
+            }   
             return this.highScoreTab;
         }else{
             throw new Error('No scores was saved!');
