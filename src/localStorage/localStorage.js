@@ -18,6 +18,8 @@ class localStorage {
             }else{
                 throw new Error('Player is not a string');
             }
+        }else{
+            throw new Error('Object is empty');
         }
     }
 
