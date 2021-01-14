@@ -1,35 +1,36 @@
+class Lightsaber {
+    timer = document.querySelector('#timer');
+    myBar = document.querySelector('#myBar');
+    width = 100.83;
+    id = setInterval(() => this.checkGame(), 1000);
 
-const id = setInterval(checkGame, 1000);
-
-let width = 100.83;
-let start = true;
-
-function checkGame(){
-
-    let el1 = document.getElementsByClassName("timer")[0];
-    
-    if(start === true){
-        el1.style.visibility = 'visible';
-        return frame();
+    constructor(gameStarted) {
+        this.gameStarted = gameStarted;
     }
-    else if(start === false){
-        el1.style.visibility = 'hidden';
-        clearInterval(id);
-    }
-}
 
-function frame() {
-
-        let el2=document.getElementsByClassName("myBar")[0];
-        
-        if (width <= 1.3) {
-            el2.style.visibility = 'hidden';
-            start = false;            
-        } else {
-            width = width-0.83;
-            el2.style.width = width + "%";
+    checkGame() {
+        if (this.gameStarted) {
+            this.timer.classList.add('visible');
+            this.frame();
         }
+        else{
+            this.timer.classList.remove('visible');
+            clearInterval(this.id);
+        }
+    }
+
+    frame() {
+        if (this.width <= 1.3) {
+            this.myBar.classList.add('hidden');
+            this.gameStarted = false;            
+        } 
+        else {
+            this.width = this.width-0.83;
+            this.myBar.style.width = this.width + "%";
+        }
+    }
+
 }
 
-
-module.exports.checkGame = checkGame;
+let lightsaber = new Lightsaber(true);
+// export default Lightsaber;

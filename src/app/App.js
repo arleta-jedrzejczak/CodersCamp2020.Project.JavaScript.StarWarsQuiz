@@ -1,8 +1,14 @@
-// import Timer from './components/timer/timer.component';
-// class App {
-//     constructor(options) {
-//         this.timer = new Timer('timer');
-//     }
-// }
+import Counter from './components/timer/counter';
+import Lightsaber from './components/timer/lightsaber';
 
-// export default App
+
+class App {
+    constructor(options) {
+
+        const gameStarted = true;
+        this.counter = new Counter(gameStarted);
+        this.lightsaber = new Lightsaber(gameStarted);
+    }
+}
+
+export default App

@@ -5,3 +5,11 @@ body {
     font-family: 'Montserrat', sans-serif;
     font-size: 10px;
 }
+
+.visible{
+    visibility: visible;
+}
+
+.hidden{
+    visibility: hidden;
+}
