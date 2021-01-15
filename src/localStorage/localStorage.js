@@ -1,48 +1,42 @@
 // Creating localStorage class
 
 class localStorage {
-
     constructor(){
-        const tab = [];
-        const highScoreTab = [];
+        this.tab = [];
+        this.highScoreTab = [];
     }
 
     save(obj){
-        if(Object.keys(obj).length === 0 && empty.constructor === Object){
+        if(Object.keys(obj).length !== 0){
             if(typeof obj.player === "string"){
-                if(typeof obj.answered === "number"){
-                    return tab.push(obj);
+                if(typeof obj.answered === "string"){
+                   return this.tab.push(obj);
                 }else{
-                    throw new Error('Answered is not a number');
+                    throw new Error('Answered is not a string');
                 }
             }else{
                 throw new Error('Player is not a string');
             }
         }else{
-            throw new Error('Object is empty');
+           throw new Error('Object is empty!')
         }
     }
 
     getScore(){
         let len = this.tab.length;
         if(len !== 0){
-            let flag;
-            do{
-                flag = false;
-                for(let i = 0; i < len; i++){
-                    if(this.tab[i].obj.answered > this.tab[i + 1].obj.answered){
-                        let tmp = this.tab[i];
-                        this.tab[i] = this.tab[i + 1];
-                        this.tab[i + 1] = tmp;
-                        flag = true;
-                    }
-                }
-            } while(flag);
+           this.tab.sort((a, b) =>{
+                let slash1 = a.answered.indexOf("/");
+                let slash2 = b.answered.indexOf("/");
+                let aSliced = a.answered.slice(0, slash1);
+                let bSliced = b.answered.slice(0, slash2);
+                return bSliced - aSliced;
+           })
             if(len > 3){
                 for(let i = 0; i < 3; i++){
                     this.highScoreTab[i] = this.tab[i];
                 }
-            }else if(len < 3){
+            }else if(len <= 3){
                 for(let i = 0; i < len; i++){
                     this.highScoreTab[i] = this.tab[i];
                 }
