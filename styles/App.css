@@ -55,7 +55,7 @@ MAIN
 */
 main{
     display: flex; 
-    flex-wrap: wrap;
+    /* flex-wrap: wrap; */
     justify-content: space-around;
 }
 /*
@@ -105,6 +105,10 @@ footer p {
 }
 
 @media only screen and (min-width: 768px) and (max-width: 991px) {
+    main{
+        flex-wrap: wrap;
+    }
+    
     .logo {
         width: 25rem;
         height: 14rem;
@@ -131,6 +135,10 @@ footer p {
 }
 
 @media only screen and (min-width: 576px) and (max-width: 767px) {
+
+    main{
+        flex-wrap: wrap;
+    }
 
     body {
         padding: 0.5rem;
@@ -167,6 +175,11 @@ footer p {
 }
 
 @media only screen and (max-width: 575px) {
+    
+    main{
+        flex-wrap: wrap;
+    }
+    
     body {
         padding: 0.5rem;
     }
