@@ -11,9 +11,6 @@ LOGO IMG SETTING
     margin: 1rem;
 }
 
-/* .logoImgSettings * {
-} */
-
 .logo {
     background-image: url("../static/assets/ui/StarWarsLogo.png");
     background-repeat: no-repeat;

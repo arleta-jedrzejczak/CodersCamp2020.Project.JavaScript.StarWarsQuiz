@@ -77,104 +77,7 @@ footer p {
     text-align: center;
 }
 
-@media only screen and (min-width: 992px) and (max-width: 1199px) {
-
-    .logo {
-        width: 25rem;
-        height: 14rem;
-    }
-
-    .img {
-        height: 34.375rem;
-        width: 25rem;
-    }
-
-    .button {
-        font-size: 2rem;
-        font-weight: 600;
-    }
-
-    .changeGameMode {
-        margin-bottom: 6rem;
-    }
-
-    .gameModeButton{
-        font-size: 3rem;
-    }
-
-}
-
-@media only screen and (min-width: 768px) and (max-width: 991px) {
-    main{
-        flex-wrap: wrap;
-    }
-    
-    .logo {
-        width: 25rem;
-        height: 14rem;
-    }
-
-    .img {
-        height: 34.375rem;
-        width: 25rem;
-    }
-
-    .button {
-        font-size: 2rem;
-        font-weight: 600;
-    }
-
-    .changeGameMode {
-        padding: 2rem;
-        margin-bottom: 4rem;
-    }
-
-    .gameModeButton{
-        font-size: 2rem;
-    }
-}
-
-@media only screen and (min-width: 576px) and (max-width: 767px) {
-
-    main{
-        flex-wrap: wrap;
-    }
-
-    body {
-        padding: 0.5rem;
-    }
-
-    .logo {
-        --width: 45rem;
-        width: var(--width);
-        height: calc(var(--width) * 0.56);
-    }
-
-    .img {
-        order:3;
-        position: absolute;
-        top: 54rem;
-        --width: 25rem;
-        width: var(--width);
-        height: calc(var(--width) * 1.495);
-    }
-
-    .changeGameMode {
-        margin-bottom: 42rem;
-        padding: 2rem;
-    }
-
-    .gameArea {
-        width: 100%;
-    }
-
-    .button {
-        font-size: 2.2rem;
-        font-weight: 600;
-    }
-}
-
-@media only screen and (max-width: 575px) {
+@media only screen and (max-width: 991px) {
     
     main{
         flex-wrap: wrap;
@@ -187,20 +90,17 @@ footer p {
     .img {
         order:3;
         position: absolute;
-        top: 62rem;
-        --width: 25rem;
-        width: var(--width);
-        height: calc(var(--width) * 1.495);
+        top: 60rem;
     }
 
-    .changeGameMode {
+    #mainMenu {
         flex-direction: column;
         margin-bottom: 42rem;
         padding: 2rem;
     }
 
     .gameArea {
-        width: 100%;
+        width: 80%;
     }
 
     .logo {
@@ -210,8 +110,8 @@ footer p {
     }
 
     .gameModeButton:hover::before{
-        left:25%;
-        width:50%;
+        left:35%;
+        width:30%;
     }
 
     .button {
