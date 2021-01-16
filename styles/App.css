@@ -19,6 +19,12 @@ body {
     margin: auto auto;
 }
 
+.bgdiv {
+    background-color: #fff;
+    margin: 1rem;
+    border-radius: 2rem;
+}
+
 .button {
     display: block;
     height: 8rem;
