@@ -6,28 +6,35 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
     <title>CodersCamp2020 | Star Wars API QUIZ</title>
     <link rel="stylesheet" href="styles/App.css"/>
-
-
-    <link
-            href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-            rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+          rel="stylesheet">
 </head>
 <body>
-<div id="currentGameMode" class="bgdiv boxShadow"></div>
-<div id="currentGameModeDescription" class="bgdiv">
-    <div id="timer" class="timer">
-        <div class="lightsaber"></div>
-        <div class="myProgress">
-            <div id="myBar" class="myBar"></div>
-        </div>
-        <div id="counter" class="counter"></div>
+<main>
+    <div class="logoImgSettings">
+        <a href="#">
+            <div class="logo"></div>
+        </a>
+    </div>
+    <div class="gameArea">
+        <div id="currentGameMode" class="bgdiv boxShadow"></div>
+        <div id="currentGameModeDescription" class="bgdiv"></div>
     </div>
 
+</main>
+
+<div class="timer" id="timer">
+    <div class="lightsaber"></div>
+    <div class="myProgress">
+        <div id="myBar" class="myBar"></div>
+    </div>
+    <div id="counter" class="counter"></div>
 </div>
 
-<script src="src/index.js"></script>
-<script src="src/app/components/timer/counter.js"></script>
-<script src="src/app/components/timer/lightsaber.js"></script>
-<script src="src/app/App.js"></script>
+<footer>
+    <p> Created by Arleta Jedrzejczak Team - CodersCamp 2020 </p>
+</footer>
+
+<script src="./src/index.js"></script>
 </body>
 </html>
