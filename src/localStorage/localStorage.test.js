@@ -10,7 +10,14 @@ test('Testing adding score to score tab', () =>{
 
     expect(
         local.save(obj)
-    ).toBe(1);
+    ).toEqual(
+        [
+            {
+                player: "test",
+                answered: "3/5"
+            }
+        ]
+    );
 });
 
 test('Testing wrong value type for answered', () => {
@@ -20,6 +27,7 @@ test('Testing wrong value type for answered', () => {
     }  
 
     const local = new localStorage();
+    local.Storage.removeItem('Score');
 
     expect( () => {
         local.save(obj)
@@ -33,6 +41,7 @@ test('Testing wrong value type for player', () => {
     }  
 
     const local = new localStorage();
+    local.Storage.removeItem('Score');
 
     expect( () => {
         local.save(obj)
@@ -43,6 +52,7 @@ test('Testing empty object', () => {
     let obj = {}  
 
     const local = new localStorage();
+    local.Storage.removeItem('Score');
 
     expect( () => {
         local.save(obj)
@@ -66,6 +76,7 @@ test('Testing save and read 3 objects', () => {
     }
 
     const local = new localStorage();
+    local.Storage.removeItem('Score');
     local.save(obj1);
     local.save(obj2);
     local.save(obj3);
@@ -118,6 +129,7 @@ test('Testing save more then 3 and read 3 highest score objects', () => {
     }
 
     const local = new localStorage();
+    local.Storage.removeItem('Score');
     local.save(obj1);
     local.save(obj2);
     local.save(obj3);
@@ -148,6 +160,7 @@ test('Testing save more then 3 and read 3 highest score objects', () => {
 test('Testing empty score tab read', () => {
 
     const local = new localStorage();
+    local.Storage.removeItem('Score');
 
     expect( () => {
         local.getScore()
