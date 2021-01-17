@@ -20,8 +20,8 @@ class MainMenu {
             margin-bottom: 10rem;
             `
         document.querySelector('.gameArea').appendChild(mainMenuContainer);
-        document.querySelector('.gameArea').insertBefore(mainMenuContainer, document.querySelector('.gameArea').firstChild)
-    };git status
+        document.querySelector('.gameArea').insertBefore(mainMenuContainer, document.querySelector('.gameArea').firstChild);
+    };
     
     creatingButton(name) {
         let button = document.createElement("button");
