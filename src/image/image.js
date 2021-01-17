@@ -18,10 +18,8 @@ class Image {
             }
 
             const img = document.createElement('img');
-            let source = "../../static/assets/img/modes/people/10.jpg";
-            // source = src2
             img.id="img"
-            img.setAttribute("src", source);
+            img.setAttribute("src", src2);
             img.style=
             `
             box-shadow: 0 0 25px 1px red;
@@ -42,10 +40,8 @@ class Image {
             }
 
             const img = document.createElement('img');
-            let source = "../../static/assets/img/modes/vehicles/14.jpg";
-            // source = src2
             img.id="img"
-            img.setAttribute("src", source);
+            img.setAttribute("src", src2);
             img.style=
             `
             box-shadow: 0 0 25px 1px red;
@@ -66,10 +62,8 @@ class Image {
             }
 
             const img = document.createElement('img');
-            let source = "../../static/assets/img/modes/starships/15.jpg";
-            // source = src2
             img.id="img"
-            img.setAttribute("src", source);
+            img.setAttribute("src", src2);
             img.style=
             `
             box-shadow: 0 0 25px 1px red;
