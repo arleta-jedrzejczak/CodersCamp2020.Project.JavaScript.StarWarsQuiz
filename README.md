@@ -65,11 +65,15 @@
 * Example no. 3 - if statements  
 	![If statements](./img_readme/3.PNG)
 
-* Przykład 4 – variables  
+* Example no. 4 – variables  
 	![Variables](./img_readme/4.PNG)
 
-* Przykład 5 – interaction with the DOM  
+* Example no. 5 – interaction with the DOM  
 	![Interaction with the DOM](./img_readme/5.PNG)
 
-### Użyte czcionki:
+### Examples of the implementation of assumptions on the website:
+* Example no. 1 - Animations  
+	![Animations](./img_readme/6.PNG)
+
+### Fonts used:
 1. [Font Montserrat](https://fonts.google.com/specimen/Montserrat?query=Montserrat "Font Montserrat")
