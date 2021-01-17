@@ -36,7 +36,10 @@ class Rules{
       
       header.appendChild(content);
       header.style='text-align: center;';
+
       document.querySelector('#currentGameMode').appendChild(header);
+
+      document.querySelector('#currentGameMode').style='padding: 10px; box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 4px 4px 40px rgba(255, 0, 0, 0.9), inset 4px 5px 4px rgba(0, 0, 0, 0.5); border-radius: 8px;';
    }
 
    renderDescription(mode){
@@ -57,6 +60,7 @@ class Rules{
          
          descriptionTitle.style='text-align: center;';
          description.style='text-align: center;';
+
          descriptionTitleImg.setAttribute('src', 'https://images.vexels.com/media/users/3/143402/isolated/preview/afbbf15d5e82a1c4fb5a55c4eacf3003-graduation-cap-icon-by-vexels.png');
          
          descriptionTitleImg.style='width: 1.6em; height: 1.5em; margin-right: 1em;';
@@ -64,6 +68,8 @@ class Rules{
 
          document.querySelector('#currentGameModeDescription').appendChild(descriptionTitleContainer);
          document.querySelector('#currentGameModeDescription').appendChild(description);
+
+         document.querySelector('#currentGameModeDescription').style='padding: 12px; box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); border-radius: 8px;';
       }
    }
 }
