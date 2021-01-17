@@ -73,7 +73,7 @@
 
 ### Examples of the implementation of assumptions on the website:
 * Example no. 1 - Animations  
-	![Animations](./img_readme/6.PNG)
+	![Animations](./img_readme/6.png)
 
 ### Fonts used:
 1. [Font Montserrat](https://fonts.google.com/specimen/Montserrat?query=Montserrat "Font Montserrat")
