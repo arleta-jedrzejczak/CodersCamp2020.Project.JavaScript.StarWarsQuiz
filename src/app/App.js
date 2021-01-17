@@ -3,6 +3,10 @@ import Rules from '../rules/rules'
 import GameOver from '../gameOver/gameOver'
 import {data} from '../gameOver/data'
 
+const submitFn=(nick, points)=>{
+    console.log(nick, points);
+}
+
 export const App = ({options}) => {
     
     // this.answearDisplay = new answearDisplay(answear, elementId);
@@ -11,5 +15,5 @@ export const App = ({options}) => {
 
     // this.rules = new Rules('starships-intro')   // characters-intro | vehicles-intro | starships-intro | characters-question | vehicles-question | starships-question
 
-    this.gameover=new GameOver(data)
+    this.gameover=new GameOver(data, submitFn)
 }

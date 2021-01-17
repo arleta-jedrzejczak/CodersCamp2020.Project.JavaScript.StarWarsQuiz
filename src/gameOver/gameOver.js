@@ -1,6 +1,7 @@
 class GameOver{
-   constructor(data){
-      this.createContainer(data);
+   constructor(data, submitFn){
+      this.createContainer(data, submitFn);
+      this.nick='';
    }
 
    createList(data){
@@ -10,10 +11,12 @@ class GameOver{
       const summary=document.createElement('div')
       const list=document.createElement('div')
 
+      yoda.setAttribute('id', 'yodaImage');
+
       header.appendChild(document.createTextNode('Detailed Answers'));
+      header.style='text-align: center;';
 
       yoda.setAttribute('src', 'static/assets/img/modes/gameover/MasterYoda.png');
-      yoda.style='margin: 0 70px -10px 0;';
 
       const subheader=document.createElement('div');
 
@@ -65,9 +68,12 @@ class GameOver{
       container.appendChild(yoda)
       container.appendChild(summary)
 
-      subheader.style='display: grid; grid-template-columns: 60px 120px 120px 120px; grid-column-gap: 20px; grid-row-gap: 10px; margin-bottom: 20px;';
-      list.style='height: 260px; overflow-y: scroll; overflow-x: hidden; display: grid; grid-template-columns: 60px 120px 120px 120px; grid-column-gap: 20px; grid-row-gap: 10px; margin-bottom: 20px;';
-      summary.style='width: 100%;';
+      list.setAttribute('id','answersList')
+      summary.setAttribute('id', 'answersDetails')
+
+      subheader.style='display: grid; grid-template-columns: 40px 1fr 1fr 1fr; grid-column-gap: 20px; grid-row-gap: 10px;';
+      summary.style='width: 100%';
+      list.style='height: 260px; overflow-y: scroll; overflow-x: hidden; display: grid; grid-template-columns: 40px 1fr 1fr 1fr; grid-column-gap: 20px; grid-row-gap: 10px; margin-bottom: 20px;';
       container.style='display: flex;';
 
       return container
@@ -76,23 +82,31 @@ class GameOver{
    createInput(){
       const container=document.createElement('div')
       const input=document.createElement('input')
+      input.setAttribute('id', 'nick')
       input.setAttribute('type', 'text')
       const label=document.createElement('label')
 
       const labelText=document.createTextNode('Please fill your name in order to receive eternal glory in the whole galaxy!');
       label.appendChild(labelText);
 
-      input.style='margin: 0 30px 0 20px; height: 40px; width: 260px; font-size: 1.6em;';
+      input.setAttribute('required', 'true')
+
+      input.addEventListener('change', ()=>{
+         this.nick=document.querySelector('#nick').value
+      })
+      
       label.style='font-size: 19px; text-align: center;';
       container.style='display: flex;';
 
       container.appendChild(input)
       container.appendChild(label)
 
+      container.setAttribute('id', 'gameoverInput')
+
       return container
    }
 
-   createContainer(data){
+   createModal(data, submitFn){
       const totalAnsw=data.player_total_answers;
       const playerAnswers=data.player_total_points;
       const computerAnswers=data.computer_total_points;
@@ -100,6 +114,8 @@ class GameOver{
       const container=document.createElement('div')
       const title=document.createElement('h1')
       const subtitle=document.createElement('h3')
+      const form=document.createElement('form')
+      const submitBtn=document.createElement('input')
 
       const gameover=document.createTextNode(`GAME OVER`);
       const description=document.createTextNode(`The force is strong in you young Padawan! During 1 minute you have answered ${playerAnswers} / ${totalAnsw} questions. And Google quessed ${computerAnswers} / ${totalAnsw}.`);
@@ -113,14 +129,39 @@ class GameOver{
       const list=this.createList(data)
       const input=this.createInput()
 
-      container.style='max-width: 800px; margin: 0 auto; border-radius: 5px;';
+      list.setAttribute('id', 'gameoverList')
+
+      submitBtn.setAttribute('type', 'submit')
+      submitBtn.style="width: 60%; background-color: #d10e30; border: none; height: 40px; border-radius: 4px; margin: 30px 20% 0 20%; font-size: 26px; font-weight: bold; color: #c2d0d3";
+      form.appendChild(input)
+      form.appendChild(submitBtn)
+
+      form.setAttribute('onsubmit', submitFn(this.nick, playerAnswers));
 
       container.appendChild(title)
       container.appendChild(subtitle)
       container.appendChild(list)
-      container.appendChild(input)
+      container.appendChild(form)
 
-      document.querySelector('#game-over').appendChild(container);
+      return container
+   }
+
+   createContainer(data, submitFn){
+      const modal=this.createModal(data, submitFn)
+      const btn=document.createElement('button')
+      btn.innerHTML='click me';
+
+      modal.style='display: none;'
+
+      btn.onclick=()=>{
+         modal.style='display: block; max-width: 800px; z-index: 1000; background-color: white; border-radius: 10px; padding: 10px; margin: auto';
+
+         document.querySelector('#game-over').appendChild(modal);
+
+         document.querySelector('body').style='background-color: rgba(0,0,0,0.4);';
+      }
+
+      document.querySelector('#game-over').appendChild(btn);
    }
 }
 
