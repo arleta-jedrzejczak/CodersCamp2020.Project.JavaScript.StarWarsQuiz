@@ -4,6 +4,7 @@ import answearDisplay from '../answearDisplay/answearDisplay';
 import Rules from '../rules/rules';
 import MainMenu from "../mainMenu/mainMenu";
 import Image from "../image/image";
+import GameOver from '../gameOver/gameOver';
 
 class App {
     constructor(options) {
@@ -23,7 +24,8 @@ class App {
       this.answearDisplay = new answearDisplay(answear, elementId);
       // First argument 'answear' boolean, is responsible for checking correct answear
       // Second is ID of a DOMelement which should be colored
-
+      
+       this.gameover=new GameOver(data, submitFn)   //takes data as js object and callback after submitting player nick
     }
 }
 
