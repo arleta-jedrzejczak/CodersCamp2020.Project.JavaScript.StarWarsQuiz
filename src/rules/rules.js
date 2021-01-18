@@ -1,11 +1,7 @@
 class Rules{
-   constructor(mode){
-      this.renderHeader(mode);
-      this.renderDescription(mode);
-   }
-
    renderHeader(mode){
       const header=document.createElement('h1');
+      const cont=document.createElement('div');
       let text='';
 
       switch (mode){
@@ -37,9 +33,13 @@ class Rules{
       header.appendChild(content);
       header.style='text-align: center;';
 
-      document.querySelector('#currentGameMode').appendChild(header);
+      cont.appendChild(header)
 
-      document.querySelector('#currentGameMode').style='padding: 10px; box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 4px 4px 40px rgba(255, 0, 0, 0.9), inset 4px 5px 4px rgba(0, 0, 0, 0.5); border-radius: 8px;';
+      cont.style='padding: 16px; font-size: 24px; font-weight: bold; box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 4px 4px 40px rgba(255, 0, 0, 0.9), inset 4px 5px 4px rgba(0, 0, 0, 0.5); border-radius: 8px;';
+
+      cont.setAttribute('id', 'gameModeHeaderText')
+
+      return cont;
    }
 
    renderDescription(mode){
@@ -48,6 +48,7 @@ class Rules{
          const descriptionTitle=document.createElement('h3');
          const descriptionTitleImg=document.createElement('img');
          const description=document.createElement('p');
+         const cont=document.createElement('div')
 
          const titleContent=document.createTextNode('Current mode rules');
          const descriptionContent=document.createTextNode(`You have one minute (1m) to answer as many questions as possible. During the game on each question you need to select what ${mode=='characters-intro' ? 'character' : mode=='vehicles-intro' ? 'vehicle' : mode=='starships-intro' ? 'starship' : 'thing'} from Star Wars is showed on the left image from available options.`);
@@ -66,10 +67,14 @@ class Rules{
          descriptionTitleImg.style='width: 1.6em; height: 1.5em; margin-right: 1em;';
          descriptionTitleContainer.style='display: inline-flex; align-items: center; width: 100%; justify-content: center;';
 
-         document.querySelector('#currentGameModeDescription').appendChild(descriptionTitleContainer);
-         document.querySelector('#currentGameModeDescription').appendChild(description);
+         cont.appendChild(descriptionTitleContainer);
+         cont.appendChild(description);
 
-         document.querySelector('#currentGameModeDescription').style='padding: 12px; box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); border-radius: 8px;';
+         cont.setAttribute('id', 'gameModeDescriptionText')
+
+         cont.style='padding: 12px; box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); border-radius: 8px; font-size: 20px;';
+
+         return cont
       }
    }
 }
