@@ -7,6 +7,7 @@ import Image from '../image/image';
 import GameOver from '../gameOver/gameOver';
 import localStorage from '../localStorage/localStorage';
 import TableWithScores from './components/TableWithScores';
+import {data} from '../gameOver/data'
 
 // dummy data for generate table, it should be delate and take from local storage
 let players = [
@@ -24,10 +25,38 @@ let players = [
   },
 ];
 
+const submitFn=(a)=>{
+    console.log(a);
+}
+
 class App {
     constructor(options) {
     //   this.counter = new Counter(gameStarted);
     //   this.lightsaber = new Lightsaber(gameStarted);
+
+
+
+    //////////////////////////////    GAME OVER MODULe
+
+    this.gameover=new GameOver();   //takes data as js object and callback after submitting player nick
+
+    const btn=document.createElement('button')
+    btn.setAttribute('id', 'showResultsBtn')
+    document.querySelector('.btnctn').appendChild(btn)
+    btn.innerHTML='click me';
+
+
+    btn.addEventListener('click', ()=>{
+        const modal=this.gameover.createModal(data, submitFn)
+        modal.style='display: block; max-width: 800px; z-index: 1000; background-color: white; border-radius: 10px; padding: 10px; margin: auto; position: fixed; top: 10%; left: 10%;';
+
+        document.querySelector('#game-over').appendChild(modal);
+        document.querySelector('#game-over').style='height: 100vh; position: fixed; width: 100vw; top: 0; z-index: 900; left: 0; background-color: rgba(0, 0, 0, 0.5)';
+    })
+
+    /////////////////////////////////////////////////
+
+
       
       this.mainmenu = new MainMenu();
       
@@ -36,16 +65,22 @@ class App {
       
       this.rules = new Rules();   // characters-intro | vehicles-intro | starships-intro | characters-question | vehicles-question | starships-question
 
+
+
+
+      /////////////////////// GAME MODE HEADER AND RULES    
+
       document.querySelector('#currentGameMode').appendChild(this.rules.renderHeader('starships-intro'))
       document.querySelector('#currentGameModeDescription').appendChild(this.rules.renderDescription('starships-intro'))
+
+      ////////////////////////////////////////////////////
 
       
       
     //   this.answearDisplay = new answearDisplay(answear, elementId);
       // First argument 'answear' boolean, is responsible for checking correct answear
       // Second is ID of a DOMelement which should be colored
-      
-    //    this.gameover=new GameOver(data, submitFn);   //takes data as js object and callback after submitting player nick
+
 
        this.whiteButton=this.whiteButtonRender()
     }

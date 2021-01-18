@@ -1,6 +1,5 @@
 class GameOver{
-   constructor(data, submitFn){
-      this.createContainer(data, submitFn);
+   constructor(){
       this.nick='';
    }
 
@@ -89,9 +88,7 @@ class GameOver{
       const labelText=document.createTextNode('Please fill your name in order to receive eternal glory in the whole galaxy!');
       label.appendChild(labelText);
 
-      input.setAttribute('required', 'true')
-
-      input.addEventListener('change', ()=>{
+      input.addEventListener('keydown', ()=>{
          this.nick=document.querySelector('#nick').value
       })
       
@@ -114,8 +111,7 @@ class GameOver{
       const container=document.createElement('div')
       const title=document.createElement('h1')
       const subtitle=document.createElement('h3')
-      const form=document.createElement('form')
-      const submitBtn=document.createElement('input')
+      const btn=document.createElement('btn')
 
       const gameover=document.createTextNode(`GAME OVER`);
       const description=document.createTextNode(`The force is strong in you young Padawan! During 1 minute you have answered ${playerAnswers} / ${totalAnsw} questions. And Google quessed ${computerAnswers} / ${totalAnsw}.`);
@@ -131,37 +127,28 @@ class GameOver{
 
       list.setAttribute('id', 'gameoverList')
 
-      submitBtn.setAttribute('type', 'submit')
-      submitBtn.style="width: 60%; background-color: #d10e30; border: none; height: 40px; border-radius: 4px; margin: 30px 20% 0 20%; font-size: 26px; font-weight: bold; color: #c2d0d3";
-      form.appendChild(input)
-      form.appendChild(submitBtn)
+      btn.style="display: block; background-color: #d10e30; border-radius: 4px; margin: 18px auto; text-align: center; font-size: 26px; font-weight: bold; color: #c2d0d3; padding: 10px 20px; width: 60%;";
+      btn.appendChild(document.createTextNode('SUBMIT'))
 
-      form.setAttribute('onsubmit', submitFn(this.nick, playerAnswers));
+      btn.addEventListener('click', ()=>{
+         if(this.nick){
+            submitFn(this.nick)
+            document.querySelector('#game-over').style='display: none;'
+         }
+         else{
+            alert('your nick is empty!')
+         }
+      })
 
       container.appendChild(title)
       container.appendChild(subtitle)
       container.appendChild(list)
-      container.appendChild(form)
+      container.appendChild(input)
+      container.appendChild(btn)
+
+      container.style='display: block; max-width: 800px; z-index: 1000; background-color: white; border-radius: 10px; padding: 10px; margin: auto';
 
       return container
-   }
-
-   createContainer(data, submitFn){
-      const modal=this.createModal(data, submitFn)
-      const btn=document.createElement('button')
-      btn.innerHTML='click me';
-
-      modal.style='display: none;'
-
-      btn.onclick=()=>{
-         modal.style='display: block; max-width: 800px; z-index: 1000; background-color: white; border-radius: 10px; padding: 10px; margin: auto';
-
-         document.querySelector('#game-over').appendChild(modal);
-
-         document.querySelector('body').style='background-color: rgba(0,0,0,0.4);';
-      }
-
-      document.querySelector('#game-over').appendChild(btn);
    }
 }
 
