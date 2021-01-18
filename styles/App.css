@@ -3,6 +3,7 @@
 @import url(./gameAreaSection.css);
 @import url(./lightsaber.css);
 @import url(./counter.css);
+@import url(./redButton.css);
 
 body {
     background-image: url("../static/assets/ui/QuizBackground.png") ;
