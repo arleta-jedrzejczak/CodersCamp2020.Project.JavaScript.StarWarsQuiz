@@ -13,6 +13,7 @@ class App {
       this.redButton .addEventListener('click', () => {
         this.renderTimer();
         this.redButton.classList.add('hidden');
+        this.whiteButton.classList.add('hidden');
       });
       
       this.mainmenu = new MainMenu();
