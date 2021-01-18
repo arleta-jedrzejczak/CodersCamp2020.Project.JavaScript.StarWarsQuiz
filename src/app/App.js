@@ -5,7 +5,7 @@ import Rules from '../rules/rules';
 import MainMenu from "../mainMenu/mainMenu";
 import Image from "../image/image";
 import GameOver from '../gameOver/gameOver';
-import localStorage from '..localStorage/l'
+import localStorage from '../localStorage/localStorage';
 
 class App {
     constructor(options) {
