@@ -7,7 +7,7 @@
   text-align: left;
 }
 
-.ranking-header {
+.ranking-header, .no-ranking-data{
   font-size: 3.5rem;
   text-align: center;
 }
