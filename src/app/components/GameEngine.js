@@ -1,4 +1,3 @@
-
 import API from ".././helpers/API";
 import toDataURL from ".././helpers/ImageBase64";
 /*
