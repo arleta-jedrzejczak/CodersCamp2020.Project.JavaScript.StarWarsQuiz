@@ -1,10 +1,14 @@
 import GameEngine from "./components/GameEngine";
+import Player from "./components/Player";
+import EventsHandlers from "./components/GameHanding";
 
 class App {
     constructor(options) {
         this.mode = 'people';
         this.options = options.options;
-        this.newGame = new GameEngine(options, this.mode);
+        this.player = new Player();
+        this.newGame = new GameEngine(options, this.mode, this.player);
+        this.eventHandlers = new EventsHandlers();
 
         this.#initApp();
     }
@@ -18,24 +22,15 @@ class App {
     #run()
     {
         this.newGame.startGame();
-        this.newGame.getPlayerPoints();
-        this.newGame.getPlayerAnswers();
+        this.newGame.renderQuestions(
+            this.eventHandlers.setEvents
+        );
     }
 
     #stop()
     {
         this.newGame.gameOver();
     }
-    
-
-    /*
-    toDataURL(options.imageUrl + 'people/1.jpg')
-    .then(dataUrl => {
-        console.log(dataUrl);
-
-        return dataUrl;
-    });
-    */
 }
 
 export default App;

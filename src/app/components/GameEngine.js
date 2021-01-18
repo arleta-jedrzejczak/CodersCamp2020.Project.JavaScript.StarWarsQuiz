@@ -1,16 +1,13 @@
 import API from ".././helpers/API";
 import toDataURL from ".././helpers/ImageBase64";
-/*
- * Create GameEngine class
- * SR
- */
+
 class GameEngine {
-    constructor(options, mode)
+    constructor(options, mode, player)
     {
         this.options = options.options;
         this.mode = mode;
         this.api = new API(this.options.swApiBaseUrl, this.mode);
-        this.playerPoints = 0;
+        this.player = player;
         this.isRunning = false;
         this.gameOver = true;
         this.questionsIds = [];
@@ -26,7 +23,7 @@ class GameEngine {
         console.log(`GAME_ENGINE: Ready for launch!`);
     }
 
-    renderQuestions()
+    renderQuestions(callback)
     {
         const answers = [];
         const answersIds = this.#getRandomIds();
@@ -36,14 +33,23 @@ class GameEngine {
         // Get right answer image
         const rightAnswerImg = this.getRightAnswerImage(rightAnswerId)
         .then(dataUrl => {
-            return dataUrl;
+            let imgElement = document.createElement('IMG');
+            imgElement.setAttribute('src', dataUrl);
+            document.getElementById('swquiz-app').appendChild(imgElement);
         });
 
         // Get all random answers
         answersIds.forEach(qid => {
             this.api.sendRequest(qid)
             .then(response => response.json())
-            .then(data => answers.push(data.name));
+            .then(data => {
+                let divElement = document.createElement('DIV');
+                divElement.setAttribute('class', 'answer');
+                divElement.setAttribute('data-name', data.name);
+                divElement.innerText = data.name;
+                document.getElementById('swquiz-app').appendChild(divElement);
+                answers.push(data.name);
+            })
         });
 
         // Get right answer
@@ -68,37 +74,17 @@ class GameEngine {
 
     getRightAnswerImage(id = null)
     {
-        return toDataURL(`${this.options.imageUrl}${this.mode}${id}.jpg`);
+        return toDataURL(`./${this.options.imageUrl}${this.mode}/${id}.jpg`);
     }
 
-    checkPlayerAnswer(answer = null)
+    checkAnswer(answer = null)
     {
         if (answer === this.rightAnswer) {
             this.isAnswerCorrect = true;
+            this.player.addPlayerPoint();
         }
 
         return this.isAnswerCorrect;
-    }
-
-    addPlayerPoint()
-    {
-        return this.playerPoints++;
-    }
-
-    getPlayerPoints()
-    {
-        return this.playerPoints;
-    }
-
-    getPlayerAnswers()
-    {
-        const data = {
-            totalPoints: this.playerPoints,
-            totalAnswers: this.answers.length,
-            answers: this.answers
-        };
-
-        return JSON.stringify(data);
     }
 
     startGame()
@@ -106,7 +92,6 @@ class GameEngine {
         this.isRunning = true;
         this.gameOver = false;
         console.log(`GAME_ENGINE: START: ${this.isRunning}`);
-        this.renderQuestions();
 
         return this.isRunning;
     }

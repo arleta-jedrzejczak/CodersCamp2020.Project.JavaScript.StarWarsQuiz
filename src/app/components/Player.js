@@ -24,6 +24,8 @@ class Player {
             answers: this.answers
         };
 
+        console.log(data);
+
         return JSON.stringify(data);
     }
 }
