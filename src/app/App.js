@@ -21,8 +21,8 @@ class App {
       this.whiteButton.addEventListener('click', () => {
         if(this.flag){
             this.whiteButton.innerHTML = `<i class="fas fa-graduation-cap"></i>Rules`;
-            this.tableWithScores = new TableWithScores('currentGameModeDescription');
-            this.tableWithScores.renderTable(this.localStorage.getScore()); 
+            // this.tableWithScores = new TableWithScores('currentGameModeDescription');
+            // this.tableWithScores.renderTable(this.localStorage.getScore()); 
             return this.flag = false;
         }else{
             this.whiteButton.innerHTML = `<i class="fas fa-id-badge"></i></i>Hall of fame`;
