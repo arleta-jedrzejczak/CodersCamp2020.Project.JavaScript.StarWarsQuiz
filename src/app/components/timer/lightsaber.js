@@ -5,9 +5,7 @@ class Lightsaber {
     width = 100.83;
     gameStarted=true;
     id = setInterval(() => this.checkGame(), 1000);
-    // constructor(gameStarted) {
-    //     this.gameStarted = gameStarted;
-    // }
+
     checkGame() {
         if (this.gameStarted) {
             this.timer.classList.add('visible');

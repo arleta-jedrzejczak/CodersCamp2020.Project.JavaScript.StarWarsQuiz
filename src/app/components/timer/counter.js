@@ -3,9 +3,7 @@ class Counter {
     time = 120;
     gameStarted=true;
     idTimer = setInterval(() => this.checkGame(), 1000);
-    // constructor() {
-    //     this.gameStarted = gameStarted;
-    // }
+
     checkGame() {
         if(this.gameStarted){
             if(this.time > 0) {
