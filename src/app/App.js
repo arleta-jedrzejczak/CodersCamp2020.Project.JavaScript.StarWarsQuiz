@@ -2,10 +2,27 @@ import Counter from './components/timer/counter';
 import Lightsaber from './components/timer/lightsaber';
 import answearDisplay from '../answearDisplay/answearDisplay';
 import Rules from '../rules/rules';
-import MainMenu from "../mainMenu/mainMenu";
-import Image from "../image/image";
+import MainMenu from '../mainMenu/mainMenu';
+import Image from '../image/image';
 import GameOver from '../gameOver/gameOver';
 import localStorage from '../localStorage/localStorage';
+import TableWithScores from './components/TableWithScores';
+
+// dummy data for generate table, it should be delate and take from local storage
+let players = [
+  {
+    player: 'Ania',
+    answered: '15/20',
+  },
+  {
+    player: 'Mateusz',
+    answered: '14/30',
+  },
+  {
+    player: 'Leia Organa',
+    answered: '1/23',
+  },
+];
 
 class App {
     constructor(options) {
