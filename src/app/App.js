@@ -4,20 +4,16 @@ import answearDisplay from '../answearDisplay/answearDisplay';
 import Rules from '../rules/rules';
 import MainMenu from "../mainMenu/mainMenu";
 import Image from "../image/image";
-import RedButton from './components/redButton/redButton';
-
-var gameStarted = false;
 
 class App {
     constructor(options) {
-      // TODO: throw after add gameStarted flag to start button
       
-      
-      this.redButton = new RedButton(gameStarted);
-      console.log(gameStarted);
-
-      this.counter = new Counter(gameStarted);
-      this.lightsaber = new Lightsaber(gameStarted);
+      this.redButton = document.querySelector('.redButton');
+      this.redButton.innerHTML = `PLAY THE GAME`;
+      this.redButton .addEventListener('click', () => {
+        this.renderTimer();
+        this.redButton.classList.add('hidden');
+      });
       
       this.mainmenu = new MainMenu();
       
@@ -31,7 +27,11 @@ class App {
       // Second is ID of a DOMelement which should be colored
 
     }
-    
+
+    renderTimer() {
+      this.counter = new Counter();
+      this.lightsaber = new Lightsaber();
+    }
 }
 
 export default App;
