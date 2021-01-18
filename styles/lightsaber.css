@@ -1,32 +1,32 @@
-.timer{
-    visibility: hidden;
-    height: 1.5rem;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
+.timer {
+  visibility: hidden;
+  height: 1.5rem;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
 }
-.lightsaber{   
-    background-image: url("../static/assets/ui/LightsaberHandle.png");
-    background-repeat: no-repeat;
-    background-size: 100% 100%;
-    height: 1.5rem; 
-    flex-basis: 15%;
-}
-
-.myProgress{
-    height: 1rem;
-    border-radius: 1.5rem;
-    background-color: #ddd;
-    flex-basis: 85%;
-    margin-left: -1rem;
+.lightsaber {
+  background-image: url('../static/assets/ui/LightsaberHandle.png');
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  height: 1.5rem;
+  flex-basis: 15%;
 }
 
-.myBar{
-    width: 100%;
-    height: 1rem;
-    border-radius: 1.5rem;
-    background-color: white;
-    box-shadow: 0 0 2rem 0.5rem red;
+.myProgress {
+  height: 1rem;
+  border-radius: 1.5rem;
+  background-color: #ddd;
+  flex-basis: 85%;
+  margin-left: -1rem;
+}
+
+.myBar {
+  width: 100%;
+  height: 1rem;
+  border-radius: 1.5rem;
+  background-color: white;
+  box-shadow: 0 0 2rem 0.5rem red;
 }

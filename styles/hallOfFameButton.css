@@ -1,23 +1,23 @@
-.btnctn{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+.btnctn {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 .whiteButton {
-    visibility: visible;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    margin: auto;
-    height: 8rem;
-    border-radius: 2rem;
-    font-size: 3rem;
-    font-weight: 600;
-    color:black;
-    background-color: white;
-    flex-basis: 45%;
+  visibility: visible;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+  height: 8rem;
+  border-radius: 2rem;
+  font-size: 3rem;
+  font-weight: 600;
+  color: black;
+  background-color: white;
+  flex-basis: 45%;
 }
 .whiteButton:hover {
-    cursor: pointer;
+  cursor: pointer;
 }

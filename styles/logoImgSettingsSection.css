@@ -4,17 +4,17 @@ LOGO IMG SETTING
 ///////////////////////////
 */
 .logoImgSettings {
-    display:flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
-    margin: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  margin: 1rem;
 }
 
 .logo {
-    background-image: url("../static/assets/ui/StarWarsLogo.png");
-    background-repeat: no-repeat;
-    background-size: cover;
-    width: 35rem;
-    height: 19.6rem;
+  background-image: url('../static/assets/ui/StarWarsLogo.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 35rem;
+  height: 19.6rem;
 }
