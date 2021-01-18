@@ -25,33 +25,47 @@ let players = [
 ];
 
 class App {
-  constructor(options) {
-    // TODO: throw after add gameStarted flag to start button
-    const gameStarted = false;
-    this.localStorage = new localStorage();
-    // Class have 2 methods localStorage.save(obj), where 'obj' is object with 2 parametrs player - that have player nick(string) and answered - that have score of that player(string). This method save this obj in score table.
-    // Second method localStorage.getScore() which return table of 3 highest scores in order.
+    constructor(options) {
+      // TODO: throw after add gameStarted flag to start button
+      const gameStarted = false;
+      this.localStorage = new localStorage();
+        // Class have 2 methods localStorage.save(obj), where 'obj' is object with 2 parametrs player - that have player nick(string) and answered - that have score of that player(string). This method save this obj in score table.
+        // Second method localStorage.getScore() which return table of 3 highest scores in order.
 
-    this.counter = new Counter(gameStarted);
-    this.lightsaber = new Lightsaber(gameStarted);
+      this.whiteButton = document.querySelector('.whiteButton');
+      this.whiteButton.innerHTML = `<i class="fas fa-id-badge"></i></i>Hall of fame`;
+      this.flag = true;
+      this.whiteButton.addEventListener('click', () => {
+        if(this.flag){
+            this.whiteButton.innerHTML = `<i class="fas fa-graduation-cap"></i>Rules`;
+            // this.tableWithScores = new TableWithScores('currentGameModeDescription');
+            // this.tableWithScores.renderTable(this.localStorage.getScore()); 
+            return this.flag = false;
+        }else{
+            this.whiteButton.innerHTML = `<i class="fas fa-id-badge"></i></i>Hall of fame`;
+            // tutaj spowrotem do rules
+            return this.flag = true;
+        }
+      });
 
-    this.mainmenu = new MainMenu();
+      this.counter = new Counter(gameStarted);
+      this.lightsaber = new Lightsaber(gameStarted);
+      
+      this.mainmenu = new MainMenu();
+      
+      this.image = new Image();
+      // this.image = new Image("../../static/assets/img/modes/people/11.jpg");
+      
+      this.rules = new Rules('starships-intro');   // characters-intro | vehicles-intro | starships-intro | characters-question | vehicles-question | starships-question
+      
+      this.answearDisplay = new answearDisplay(answear, elementId);
+      // First argument 'answear' boolean, is responsible for checking correct answear
+      // Second is ID of a DOMelement which should be colored
+      
+       this.gameover=new GameOver(data, submitFn);   //takes data as js object and callback after submitting player nick
+        
 
-    this.image = new Image();
-    // this.image = new Image("../../static/assets/img/modes/people/11.jpg");
-
-    this.rules = new Rules('starships-intro'); // characters-intro | vehicles-intro | starships-intro | characters-question | vehicles-question | starships-question
-
-    this.answearDisplay = new answearDisplay(answear, elementId);
-    // First argument 'answear' boolean, is responsible for checking correct answear
-    // Second is ID of a DOMelement which should be colored
-
-    this.gameover = new GameOver(data, submitFn); //takes data as js object and callback after submitting player nick
-    // generate table with scores, argument in the contructor is the div id from html
-    this.tableWithScores = new TableWithScores('table');
-    // rendering table for players data, players should looks like the dummy data but should be from local storage
-    this.tableWithScores.renderTable(players);
-  }
+    }
 }
 
 export default App;
