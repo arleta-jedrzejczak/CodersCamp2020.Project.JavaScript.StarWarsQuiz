@@ -17,9 +17,8 @@ class App {
 
     #run()
     {
-        if (this.newGame.startGame()) {
-            this.newGame.renderQuestions()
-        }
+        this.newGame.startGame();
+        this.newGame.getPlayerPoints();
     }
 
     #stop()

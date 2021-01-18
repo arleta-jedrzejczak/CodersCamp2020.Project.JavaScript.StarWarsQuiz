@@ -6,15 +6,17 @@ import toDataURL from ".././helpers/ImageBase64";
  * SR
  */
 class GameEngine {
-    constructor(options, mode) {
+    constructor(options, mode)
+    {
         this.options = options.options;
         this.mode = mode;
         this.api = new API(this.options.swApiBaseUrl, this.mode);
-        this.player = {};
+        this.playerPoints = 0;
         this.isRunning = false;
         this.gameOver = true;
         this.questionsIds = [];
-        this.questions = [];
+        this.answers = [];
+        this.rightAnswer = '';
         this.isAnswerCorrect = false;
     }
 
@@ -25,105 +27,80 @@ class GameEngine {
         console.log(`GAME_ENGINE: Ready for launch!`);
     }
 
-    /*
-     * Render four questions
-     * SR
-     */
     renderQuestions()
     {
-        const questionsId = this.#getRandomIds();
-        const correctAnswerId = questionsId[0];
-        const correctAnswerImg = toDataURL(`${this.options.imageUrl}${this.mode}${correctAnswerId}.jpg`)
+        const answers = [];
+        const answersIds = this.#getRandomIds();
+        const rightAnswerId = answersIds[0];
+        let data = {};
+
+        // Get right answer image
+        const rightAnswerImg = this.getRightAnswerImage(rightAnswerId)
         .then(dataUrl => {
             return dataUrl;
         });
 
-        let answers = this.#getAnswers();
-
-        if (answers) {
-            let nextQuestion = {
-                id: correctAnswerId,
-                image: correctAnswerImg,
-                answers: answers,
-                rightAnswer: answers[correctAnswerId]
-            };
-
-            this.questions = [...this.questions];
-            this.questions.push(nextQuestion);
-
-            console.log(this.questions);
-
-            return nextQuestion;
-        }
-    }
-
-    #getAnswers()
-    {
-        let ids = this.questionsIds;
-        let answers = [];
-
-        for (let i = 0; i < ids.length; i++) {
-            this.api.sendRequest(ids[i])
+        // Get all random answers
+        answersIds.forEach(qid => {
+            this.api.sendRequest(qid)
             .then(response => response.json())
             .then(data => answers.push(data.name));
+        });
+
+        // Get right answer
+        this.rightAnswer = this.api.sendRequest(rightAnswerId)
+        .then(response => response.json())
+        .then(data => data.name);
+
+        data = {
+            id: rightAnswerId,
+            image: rightAnswerImg,
+            answers: answers,
+            rightAnswer: this.rightAnswer
+        };
+
+        this.answers = [...this.answers];
+        this.answers.push(data);
+
+        console.log(data);
+
+        return data;
+    }
+
+    getRightAnswerImage(id = null)
+    {
+        return toDataURL(`${this.options.imageUrl}${this.mode}${id}.jpg`);
+    }
+
+    checkPlayerAnswer(answer = null)
+    {
+        if (answer === this.rightAnswer) {
+            this.isAnswerCorrect = true;
         }
 
-        return answers;
+        return this.isAnswerCorrect;
     }
 
-    /*
-     * Render four questions
-     * SR
-     */
-    getPlayerAnswer()
+    addPlayerPoint()
     {
-        // Issue number 23
+        return this.playerPoints++;
     }
 
-    /*
-     * Render four questions
-     * SR
-     */
-    checkPlayerAnswer()
+    getPlayerPoints()
     {
-
+        return this.playerPoints;
     }
 
-    /*
-     * Watch and calculate 
-     * SR
-     */
-    calculatePlayerPoints()
-    {
-
-    }
-
-    /*
-     * Save Player score to local storage
-     * SR
-     */
-    saveLocalPoints()
-    {
-
-    }
-
-    /*
-     * Start game
-     * SR
-     */
     startGame()
     {
         this.isRunning = true;
         this.gameOver = false;
         console.log(`GAME_ENGINE: START: ${this.isRunning}`);
+        this.renderQuestions();
 
         return this.isRunning;
     }
 
-    /*
-     * End game
-     * SR
-     */
     endGame()
     {
         this.isRunning = false;
@@ -133,10 +110,6 @@ class GameEngine {
         return this.gameOver;
     }
 
-    /*
-     * Private methods returnig 4 unique IDs
-     * SR
-     */
     #getRandomIds()
     {
         let lastId = 0;
@@ -174,8 +147,4 @@ class GameEngine {
     }
 }
 
-/*
- * Export GameEngine class
- * SR
- */
 export default GameEngine;
