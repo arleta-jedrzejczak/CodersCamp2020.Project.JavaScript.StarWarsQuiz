@@ -36,6 +36,16 @@ class App {
 
 
 
+    ///////////////////////////////   RED BUTTON
+
+      this.redButton = document.querySelector('.redButton');
+      this.redButton.innerHTML = `PLAY THE GAME`;
+      this.redButton .addEventListener('click', () => {
+        this.renderTimer();
+        this.redButton.classList.add('hidden');
+        this.whiteButton.classList.add('hidden');
+      });
+
     //////////////////////////////    GAME OVER MODULe
 
     this.gameover=new GameOver();   //takes data as js object and callback after submitting player nick
@@ -68,7 +78,7 @@ class App {
 
 
 
-      /////////////////////// GAME MODE HEADER AND RULES    
+      /////////////////////// GAME MODE HEADER AND RULES
 
       document.querySelector('#currentGameMode').appendChild(this.rules.renderHeader('starships-intro'))
       document.querySelector('#currentGameModeDescription').appendChild(this.rules.renderDescription('starships-intro'))
@@ -76,7 +86,7 @@ class App {
       ////////////////////////////////////////////////////
 
       
-      
+
     //   this.answearDisplay = new answearDisplay(answear, elementId);
       // First argument 'answear' boolean, is responsible for checking correct answear
       // Second is ID of a DOMelement which should be colored
@@ -113,7 +123,7 @@ class App {
                 document.querySelector('#currentGameModeDescription').appendChild(div)     //append here table with scores
 
                 return flag = false;
-            } 
+            }
             else {
                 whiteButton.innerHTML = `<i class="fas fa-id-badge"></i></i>Hall of fame`;
                 // tutaj spowrotem do rules
@@ -126,6 +136,11 @@ class App {
             }
         });
     }
+
+  renderTimer() {
+    this.counter = new Counter();
+    this.lightsaber = new Lightsaber();
+  }
 }
 
 export default App;

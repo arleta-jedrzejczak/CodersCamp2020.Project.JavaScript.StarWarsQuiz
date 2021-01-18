@@ -3,6 +3,7 @@
 @import url(./gameAreaSection.css);
 @import url(./lightsaber.css);
 @import url(./counter.css);
+@import url(./redButton.css);
 @import url(./hallOfFameButton.css);
 
 body {
@@ -137,7 +138,7 @@ footer p {
     }
 }
 
-/* 
+/*
 ////////////////////////////////////////////
 GAMEOVER
 ////////////////////////////////////////////

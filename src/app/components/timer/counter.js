@@ -1,10 +1,9 @@
 class Counter {
     countDownEl = document.querySelector('#counter');
     time = 120;
+    gameStarted=true;
     idTimer = setInterval(() => this.checkGame(), 1000);
-    constructor(gameStarted) {
-        this.gameStarted = gameStarted;
-    }
+
     checkGame() {
         if(this.gameStarted){
             if(this.time > 0) {
