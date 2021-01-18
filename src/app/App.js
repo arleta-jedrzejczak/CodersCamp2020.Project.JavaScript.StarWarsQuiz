@@ -5,11 +5,15 @@ import Rules from '../rules/rules';
 import MainMenu from "../mainMenu/mainMenu";
 import Image from "../image/image";
 import GameOver from '../gameOver/gameOver';
+import localStorage from '../localStorage/localStorage';
 
 class App {
     constructor(options) {
       // TODO: throw after add gameStarted flag to start button
       const gameStarted = false;
+      this.localStorage = new localStorage();
+        // Class have 2 methods localStorage.save(obj), where 'obj' is object with 2 parametrs player - that have player nick(string) and answered - that have score of that player(string). This method save this obj in score table.
+        // Second method localStorage.getScore() which return table of 3 highest scores in order.
 
       this.counter = new Counter(gameStarted);
       this.lightsaber = new Lightsaber(gameStarted);
