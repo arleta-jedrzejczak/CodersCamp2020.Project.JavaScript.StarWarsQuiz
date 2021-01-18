@@ -24,6 +24,7 @@ export default class TableWithScores {
   // generating table caption
   generateTableCaption(table) {
     let caption = document.createElement('caption');
+    caption.classList.add('ranking-header');
     let captionText = document.createTextNode('Mode Ranking');
     caption.appendChild(captionText);
     table.appendChild(caption);

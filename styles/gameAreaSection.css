@@ -1,0 +1,13 @@
+/*
+////////////////////////////
+GAME AREA
+///////////////////////////
+*/
+
+.gameArea {
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+    margin: 1rem 0;
+}
+
