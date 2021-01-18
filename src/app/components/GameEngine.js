@@ -91,6 +91,17 @@ class GameEngine {
         return this.playerPoints;
     }
 
+    getPlayerAnswers()
+    {
+        const data = {
+            totalPoints: this.playerPoints,
+            totalAnswers: this.answers.length,
+            answers: this.answers
+        };
+
+        return JSON.stringify(data);
+    }
+
     startGame()
     {
         this.isRunning = true;

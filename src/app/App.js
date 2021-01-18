@@ -19,6 +19,7 @@ class App {
     {
         this.newGame.startGame();
         this.newGame.getPlayerPoints();
+        this.newGame.getPlayerAnswers();
     }
 
     #stop()
