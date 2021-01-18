@@ -1,13 +1,32 @@
 import GameEngine from "./components/GameEngine";
-import toDataURL from "./helpers/ImageBase64";
-import API from "./helpers/API";
 
-export const App = ({options}) => {
-    const api = new API();
-    const newGame = new GameEngine('trololololo');
-    newGame.init();
-    newGame.startGame();
-    newGame.getQuestions();
+class App {
+    constructor(options) {
+        this.mode = 'people';
+        this.options = options.options;
+        this.newGame = new GameEngine(options, this.mode);
+
+        this.#initApp();
+    }
+
+    #initApp ()
+    {
+        this.newGame.init();
+        this.#run();
+    }
+
+    #run()
+    {
+        if (this.newGame.startGame()) {
+            this.newGame.renderQuestions()
+        }
+    }
+
+    #stop()
+    {
+        this.newGame.gameOver();
+    }
+    
 
     /*
     toDataURL(options.imageUrl + 'people/1.jpg')
@@ -18,3 +37,5 @@ export const App = ({options}) => {
     });
     */
 }
+
+export default App;

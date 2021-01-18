@@ -1,17 +1,25 @@
 class API {
-    constructor(url)
+    constructor(url, mode)
     {
         this.url = url;
+        this.mode = mode;
     }
 
-    getFullUrl(data = {id: 0, mode: ''})
+    sendRequest(id = null)
     {
-        if (!data) {
-            return `${this.url}/${data.mode}/${data.id}`;
+        if (id != null) {
+            let url = `${this.url}/${this.mode}/${id}`;
+            return fetch(url);
+        } else {
+            console.error(`API: ERROR: sendRequest->invalid id: ${id}`);
         }
-
-        return false;
     }
+
+    #setUrl()
+    {
+        return `${this.url}/${this.mode}/${this.id}`;
+    }
+
 }
 
 export default API;
