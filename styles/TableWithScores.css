@@ -12,7 +12,7 @@
   text-align: center;
 }
 
-.ranking-header::before {
+caption::before {
   content: url('/static/assets/icons/contacts_24px.png');
   padding-right: 2rem;
 }
