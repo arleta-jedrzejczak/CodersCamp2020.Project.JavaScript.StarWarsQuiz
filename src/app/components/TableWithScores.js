@@ -63,10 +63,13 @@ export default class TableWithScores {
   }
 
   renderTable(players) {
-    const blankTable = this.generateBlankTable();
-    const tableWithCaption = this.generateTableCaption(blankTable);
-    const tableWithHeadings = this.generateTableHead(tableWithCaption, TableWithScores.headings);
-    //const tableWithResults = generateTable(tableWithHeadings, players, TableWithScores.rankingHeadings);
-    this.generateTable(tableWithHeadings, players, TableWithScores.rankingHeadings);
+    if (players.length !== 0) {
+      const blankTable = this.generateBlankTable();
+      const tableWithCaption = this.generateTableCaption(blankTable);
+      const tableWithHeadings = this.generateTableHead(tableWithCaption, TableWithScores.headings);
+      this.generateTable(tableWithHeadings, players, TableWithScores.rankingHeadings);
+    } else {
+      this.tableDiv.innerHTML = '<h3 class="no-ranking-data">Not enough data to generate a ranking!</h3>';
+    }
   }
 }
