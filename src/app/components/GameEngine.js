@@ -23,7 +23,7 @@ class GameEngine {
         console.log(`GAME_ENGINE: Ready for launch!`);
     }
 
-    renderQuestions(callback)
+    renderQuestions()
     {
         const answers = [];
         const answersIds = this.#getRandomIds();

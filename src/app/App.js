@@ -22,9 +22,7 @@ class App {
     #run()
     {
         this.newGame.startGame();
-        this.newGame.renderQuestions(
-            this.eventHandlers.setEvents
-        );
+        this.newGame.renderQuestions();
     }
 
     #stop()
