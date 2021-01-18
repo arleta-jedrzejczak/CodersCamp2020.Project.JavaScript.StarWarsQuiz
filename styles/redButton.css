@@ -12,9 +12,10 @@
     color: white;
     background-color: red;
     box-shadow: 0 0 2rem 0.5rem red;
+    flex-basis: 45%;
 }
 .redButton:hover {
     cursor: pointer;
-    background-color: rgb(238, 12, 12);
+    background-color: rgb(224, 14, 14);
     
 }
