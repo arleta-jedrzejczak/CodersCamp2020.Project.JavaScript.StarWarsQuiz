@@ -23,6 +23,26 @@ class MainMenu {
         document.querySelector('.gameArea').insertBefore(mainMenuContainer, document.querySelector('.gameArea').firstChild);
     };
     
+    creatingActiveButton(name) {
+        let button = document.createElement("button");
+        let buttonH2 = document.createElement('h2');
+        let buttonDes = document.createTextNode(`${name}`);
+        button.id = `button${name}`;
+        buttonH2.appendChild(buttonDes);
+        button.appendChild(buttonH2);
+        button.classList.add("button", "gameModeButton", "hoverCursor");
+        button.setAttribute("isactive", "true");
+    
+        button.style=
+        `
+        background-color: #fff; 
+        border: none; 
+        color: #000; 
+        `;
+    
+        document.querySelector('#mainMenu').appendChild(button);
+    };
+
     creatingButton(name) {
         let button = document.createElement("button");
         let buttonH2 = document.createElement('h2');
@@ -79,7 +99,7 @@ class MainMenu {
 
     createMainMenu() {
         this.creatingButtonContainer("mainMenu")
-        this.creatingButton("People");
+        this.creatingActiveButton("People");
         this.creatingButton("Vehicles");
         this.creatingButton("Starships");
     }
