@@ -7,7 +7,7 @@ class Player {
 
     addPlayerAnswer(answer = null)
     {
-        this.answer.push(answer);
+        this.answers.push(answer);
         this.totalAnswers++;
     }
 

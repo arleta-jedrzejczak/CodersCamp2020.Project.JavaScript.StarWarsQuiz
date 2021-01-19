@@ -25,41 +25,28 @@ class GameEngine {
 
     renderQuestions()
     {
+        this.#getRandomIds();
         const answers = [];
-        const answersIds = this.#getRandomIds();
+        const answersIds = this.questionsIds;
         const rightAnswerId = answersIds[0];
         let data = {};
-
-        // Get right answer image
-        const rightAnswerImg = this.getRightAnswerImage(rightAnswerId)
-        .then(dataUrl => {
-            let imgElement = document.createElement('IMG');
-            imgElement.setAttribute('src', dataUrl);
-            document.getElementById('swquiz-app').appendChild(imgElement);
-        });
 
         // Get all random answers
         answersIds.forEach(qid => {
             this.api.sendRequest(qid)
             .then(response => response.json())
             .then(data => {
-                let divElement = document.createElement('DIV');
-                divElement.setAttribute('class', 'answer');
-                divElement.setAttribute('data-name', data.name);
-                divElement.innerText = data.name;
-                document.getElementById('swquiz-app').appendChild(divElement);
                 answers.push(data.name);
             })
         });
 
         // Get right answer
-        this.rightAnswer = this.api.sendRequest(rightAnswerId)
+        this.api.sendRequest(rightAnswerId)
         .then(response => response.json())
-        .then(data => data.name);
+        .then(data => this.rightAnswer = data.name);
 
         data = {
             id: rightAnswerId,
-            image: rightAnswerImg,
             answers: answers,
             rightAnswer: this.rightAnswer
         };
@@ -96,11 +83,23 @@ class GameEngine {
         return this.isRunning;
     }
 
+    theLoop(callback)
+    {
+        setInterval(() => {
+            callback();
+        }, 1000);
+    }
+
+    isRunning()
+    {
+        return this.isRunning;
+    }
+
     endGame()
     {
         this.isRunning = false;
         this.gameOver = true;
-        console.log(`GAME_ENGINE: GAMEOVER: ${this.isRunning}`);
+        console.log(`GAME_ENGINE: GAMEOVER`);
 
         return this.gameOver;
     }

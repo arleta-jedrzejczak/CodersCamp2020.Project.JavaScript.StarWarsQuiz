@@ -10,6 +10,8 @@ import TableWithScores from './components/TableWithScores';
 import GameEngine from './components/gameEngine/GameEngine';
 import { data } from './components/gameOver/data';
 import Player from './components/player/Player';
+import LoaderView from './components/loader/LoaderView';
+import GamePanel from './views/gameEngineView';
 
 import ImageBase64 from './helpers/ImageBase64';
 
@@ -35,53 +37,16 @@ const submitFn = (a) => {
 
 class App {
   constructor(options) {
+    this.appIsRunning = false;
     this.options = options.options;
-    //   this.counter = new Counter(gameStarted);
-    //   this.lightsaber = new Lightsaber(gameStarted);
-
-    ///////////////////////////////   RED BUTTON
-
-    this.redButton = document.querySelector('.redButton');
-    this.redButton.innerHTML = `PLAY THE GAME`;
-    this.whiteButton = document.querySelector('.whiteButton');
-    
-
-    //////////////////////////////    GAME OVER MODULe
-
-    this.gameover = new GameOver(); //takes data as js object and callback after submitting player nick
-
-    const btn = document.createElement('button');
-    btn.setAttribute('id', 'showResultsBtn');
-    document.querySelector('.btnctn').appendChild(btn);
-    btn.innerHTML = 'click me';
-
-    btn.addEventListener('click', () => {
-      const modal = this.gameover.createModal(data, submitFn);
-      modal.style =
-        'display: block; max-width: 800px; z-index: 1000; background-color: white; border-radius: 10px; padding: 10px; margin: auto; position: fixed; top: 10%; left: 10%;';
-
-      document.querySelector('#game-over').appendChild(modal);
-      document.querySelector('#game-over').style =
-        'height: 100vh; position: fixed; width: 100vw; top: 0; z-index: 900; left: 0; background-color: rgba(0, 0, 0, 0.5)';
-    });
-
-    /////////////////////////////////////////////////
-
     this.mainmenu = new MainMenu();
-
     this.image = new Image();
-    // this.image = new Image("../../static/assets/img/modes/people/11.jpg");
-
-    this.rules = new Rules(); // characters-intro | vehicles-intro | starships-intro | characters-question | vehicles-question | starships-question
-
-    /////////////////////// GAME MODE HEADER AND RULES
-
-    document
-      .querySelector('#currentGameMode')
-      .appendChild(this.rules.renderHeader('characters-intro'));
-    document
-      .querySelector('#currentGameModeDescription')
-      .appendChild(this.rules.renderDescription('characters-intro'));
+    this.rules = new Rules();
+    this.loader = new LoaderView();
+    this.counter = new Counter();
+    this.lightsaber = new Lightsaber();
+    this.gameover = new GameOver();
+    this.gamepanel = new GamePanel();
 
     ////////////////////////////////////////////////////
 
@@ -91,7 +56,7 @@ class App {
 
     this.mode = 'people';
     this.player = new Player();
-    this.gameEngine = new GameEngine(options, this.mode, this.player);
+    this.game = new GameEngine(options, this.mode, this.player);
 
     this.init();
   }
@@ -101,7 +66,6 @@ class App {
     this.render();
 
     this.redButton.addEventListener('click', () => {
-      this.renderTimer();
       this.redButton.classList.add('hidden');
       this.whiteButton.classList.add('hidden');
       this.run();
@@ -110,24 +74,94 @@ class App {
 
   render()
   {
+    document
+      .querySelector('#currentGameMode')
+      .appendChild(this.rules.renderHeader('characters-intro'));
+    document
+      .querySelector('#currentGameModeDescription')
+      .appendChild(this.rules.renderDescription('characters-intro'));
+    this.redButton = document.querySelector('.redButton');
+    this.redButton.innerHTML = `PLAY THE GAME`;
+    this.whiteButton = document.querySelector('.whiteButton');
     // White button render
     this.whiteButtonRender();
     // Welcome image
     ImageBase64(`./${this.options.imagesUrl}${this.mode}/11.jpg`)
     .then(dataUrl => {
-      console.log(dataUrl);
       this.image.puttingImage(dataUrl);
     });
+    // Loader render
+    this.loader.render();
   }
 
   run()
   {
-    this.gameEngine.startGame();
+    this.game.startGame();
+    this.appIsRunning = true;
+
+    if (this.appIsRunning) {
+      this.loader.show();
+      let data = this.game.renderQuestions();
+
+      setTimeout(() => {
+        this.loader.hide();
+        this.gamepanel.render(data.answers);
+        ImageBase64(`./${this.options.imagesUrl}${this.mode}/${data.id}.jpg`)
+        .then(dataUrl => {
+          this.image.puttingImage(dataUrl);
+        });
+
+        const btns = document.querySelectorAll('li[data-answer]');
+        btns.forEach(b => {
+          b.addEventListener('click', ev => {
+            ev.preventDefault();
+            
+            let theAnswer = b.getAttribute('data-answer');
+            this.game.checkAnswer(theAnswer);
+
+            this.player.addPlayerAnswer(theAnswer);
+
+            if (this.appIsRunning) {
+              data = this.game.renderQuestions();
+              this.gamepanel.render(data.answers);
+              ImageBase64(`./${this.options.imagesUrl}${this.mode}/${data.id}.jpg`)
+              .then(dataUrl => {
+                this.image.puttingImage(dataUrl);
+              });
+            }
+          });
+        })
+        
+        this.game.theLoop(() => {
+          if (this.appIsRunning) {
+            this.counter.checkGame();
+            this.lightsaber.checkGame();
+
+            if (this.lightsaber.timeout() === true) {
+              this.end();
+
+              return false;
+            }
+          } else {
+            clearInterval();
+          }
+        });
+      }, 2000);
+    }
   }
 
   end()
   {
+    this.appIsRunning = false;
+    this.game.endGame();
+    this.player.getPlayerData();
+    const modal = this.gameover.createModal(data, submitFn);
+      modal.style =
+        'display: block; max-width: 800px; z-index: 1000; background-color: white; border-radius: 10px; padding: 10px; margin: auto; position: fixed; top: 10%; left: 10%;';
 
+      document.querySelector('#game-over').appendChild(modal);
+      document.querySelector('#game-over').style =
+        'height: 100vh; position: fixed; width: 100vw; top: 0; z-index: 900; left: 0; background-color: rgba(0, 0, 0, 0.5)';
   }
 
   whiteButtonRender() {
@@ -162,11 +196,6 @@ class App {
         return (flag = true);
       }
     });
-  }
-
-  renderTimer() {
-    this.counter = new Counter();
-    this.lightsaber = new Lightsaber();
   }
 }
 

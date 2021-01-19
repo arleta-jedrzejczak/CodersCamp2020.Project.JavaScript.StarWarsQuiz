@@ -2,10 +2,9 @@ class Lightsaber {
   timer = document.querySelector('#timer');
   myBar = document.querySelector('#myBar');
   redButton = document.querySelector('.redButton');
-  width = 100.83;
+  width = 10.83;
   gameStarted = true;
   tim = false;
-  id = setInterval(() => this.checkGame(), 1000);
 
   checkGame() {
     if (this.gameStarted) {
