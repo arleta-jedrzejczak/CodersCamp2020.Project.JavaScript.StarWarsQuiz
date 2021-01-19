@@ -1,7 +1,10 @@
+import Rules from '../rules/rules';
+
 class MainMenu {
   constructor() {
     this.createMainMenu();
     this.addListeners();
+    this.rules=new Rules()
   }
 
   creatingButtonContainer(name) {
@@ -114,13 +117,59 @@ class MainMenu {
   addListeners() {
     document
       .querySelector('#buttonPeople')
-      .addEventListener('click', () => this.creatingButtonPeopleActive());
+      .addEventListener('click', () => {
+        this.creatingButtonPeopleActive();
+
+        document.querySelector('#gameModeHeaderText').remove()
+        
+        document
+        .querySelector('#currentGameMode')
+        .appendChild(this.rules.renderHeader('characters-intro'))
+
+        document.querySelector('#gameModeDescriptionText').remove()
+        
+        document
+        .querySelector('#currentGameModeDescription')
+        .appendChild(this.rules.renderDescription('characters-intro'))
+      })
+
     document
       .querySelector('#buttonVehicles')
-      .addEventListener('click', () => this.creatingButtonVehiclesActive());
+      .addEventListener('click', () => {
+        this.creatingButtonVehiclesActive();
+
+        document.querySelector('#gameModeHeaderText').remove()
+        
+        document
+        .querySelector('#currentGameMode')
+        .appendChild(this.rules.renderHeader('vehicles-intro'))
+
+        document.querySelector('#gameModeDescriptionText').remove()
+        
+        document
+        .querySelector('#currentGameModeDescription')
+        .appendChild(this.rules.renderDescription('vehicles-intro'))
+      })
+
     document
       .querySelector('#buttonStarships')
-      .addEventListener('click', () => this.creatingButtonStarshipsActive());
+      .addEventListener('click', () => {
+        this.creatingButtonStarshipsActive();
+
+        document.querySelector('#gameModeHeaderText').remove()
+        
+        document
+        .querySelector('#currentGameMode')
+        .appendChild(this.rules.renderHeader('starships-intro'))
+
+        document.querySelector('#gameModeDescriptionText').remove()
+        
+        document
+        .querySelector('#currentGameModeDescription')
+        .appendChild(this.rules.renderDescription('starships-intro'))
+      })
+
+      
   }
 }
 
