@@ -25,13 +25,9 @@ let players = [
   },
 ];
 
-const submitFn = (a) => {
-  console.log(a);
-};
-
 class App {
   constructor(options) {
-    // const localStorage = new this.localStorage();
+    this.localStorage = new localStorage();
     // Class have 2 methods localStorage.save(obj), where 'obj' is object with 2 parametrs player - that have player nick(string) and answered - that have score of that player(string). This method save this obj in score table.
     // Second method localStorage.getScore() which return table of 3 highest scores in order.
 
@@ -59,7 +55,7 @@ class App {
     btn.innerHTML = 'click me';
 
     btn.addEventListener('click', () => {
-      const modal = this.gameover.createModal(data, submitFn);
+      const modal = this.gameover.createModal(data, this.localStorage.save);    //data send to localStorage.save()
       modal.style =
         'display: block; max-width: 800px; z-index: 1000; background-color: white; border-radius: 10px; padding: 10px; margin: auto; position: fixed; top: 10%; left: 10%;';
 

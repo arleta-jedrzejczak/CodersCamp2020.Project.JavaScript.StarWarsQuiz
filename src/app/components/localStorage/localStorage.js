@@ -10,6 +10,7 @@ class localStorage {
   }
 
   save(obj) {
+    console.log(obj);
     if (Object.keys(obj).length !== 0) {
       if (typeof obj.player === 'string') {
         if (typeof obj.answered === 'string') {

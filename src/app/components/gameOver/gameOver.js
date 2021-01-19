@@ -125,7 +125,7 @@ class GameOver {
 
     const gameover = document.createTextNode(`GAME OVER`);
     const description = document.createTextNode(
-      `The force is strong in you young Padawan! During 1 minute you have answered ${playerAnswers} / ${totalAnsw} questions. And Google quessed ${computerAnswers} / ${totalAnsw}.`,
+      `The force is strong in you young Padawan! During 2 minutes you have answered ${playerAnswers} / ${totalAnsw} questions. And Google quessed ${computerAnswers} / ${totalAnsw}.`,
     );
 
     title.style = 'text-align: center; font-size: 26px; font-weight: bold; margin: 10px 0;';
@@ -145,12 +145,15 @@ class GameOver {
 
     btn.addEventListener('click', () => {
       if (this.nick) {
-        submitFn(this.nick);
+        submitFn({
+          player: this.nick,
+          answered: `${playerAnswers}`
+        })
         document.querySelector('#game-over').style = 'display: none;';
-      } else {
-        alert('your nick is empty!');
       }
-    });
+      else
+        alert('your nick is empty!');
+    })
 
     container.appendChild(title);
     container.appendChild(subtitle);
