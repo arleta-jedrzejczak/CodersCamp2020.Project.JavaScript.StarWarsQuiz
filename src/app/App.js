@@ -31,6 +31,11 @@ const submitFn = (a) => {
 
 class App {
   constructor(options) {
+    // const localStorage = new this.localStorage();
+    // Class have 2 methods localStorage.save(obj), where 'obj' is object with 2 parametrs player - that have player nick(string) and answered - that have score of that player(string). This method save this obj in score table.
+    // Second method localStorage.getScore() which return table of 3 highest scores in order.
+
+    /////////////////////////////// LOCAL STORAGE
     //   this.counter = new Counter(gameStarted);
     //   this.lightsaber = new Lightsaber(gameStarted);
 
@@ -94,11 +99,8 @@ class App {
     // TODO: throw after add gameStarted flag to start button
     const gameStarted = false;
     let flag = true;
-    // const localStorage = new this.localStorage();
     const whiteButton = document.querySelector('.whiteButton');
-    // Class have 2 methods localStorage.save(obj), where 'obj' is object with 2 parametrs player - that have player nick(string) and answered - that have score of that player(string). This method save this obj in score table.
-    // Second method localStorage.getScore() which return table of 3 highest scores in order.
-
+    
     whiteButton.innerHTML = `<i class="fas fa-id-badge"></i></i>Hall of fame`;
 
     /////////////    EXAMPLE DIV    DO USUNIECIA
