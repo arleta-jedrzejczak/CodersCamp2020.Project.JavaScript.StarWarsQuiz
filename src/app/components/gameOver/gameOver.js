@@ -13,7 +13,7 @@ class GameOver {
     yoda.setAttribute('id', 'yodaImage');
 
     header.appendChild(document.createTextNode('Detailed Answers'));
-    header.style = 'text-align: center;';
+    header.style = 'text-align: center; font-weight: bold; margin-bottom: 20px; font-size: 24px;';
 
     yoda.setAttribute('src', 'static/assets/img/modes/gameover/MasterYoda.png');
 
@@ -28,10 +28,10 @@ class GameOver {
     const subheader4 = document.createElement('h5');
     subheader4.appendChild(document.createTextNode('Answer'));
 
-    subheader1.style = 'color: #666';
-    subheader2.style = 'color: #666';
-    subheader3.style = 'color: #666';
-    subheader4.style = 'color: #666';
+    subheader1.style = 'color: #666; font-size: 18px; margin-bottom: 20px;';
+    subheader2.style = 'color: #666; font-size: 18px; margin-bottom: 20px;';
+    subheader3.style = 'color: #666; font-size: 18px; margin-bottom: 20px;';
+    subheader4.style = 'color: #666; font-size: 18px; margin-bottom: 20px;';
 
     subheader.appendChild(subheader1);
     subheader.appendChild(subheader2);
@@ -50,13 +50,14 @@ class GameOver {
       img.setAttribute('src', answ.img);
 
       answ.player_answer === answ.correct_answer
-        ? (player.style = 'color: green; font-weight: 700;')
-        : (player.style = 'color: red; font-weight: 700;');
+        ? (player.style = 'color: green; font-weight: 700; font-size: 17px;')
+        : (player.style = 'color: red; font-weight: 700; font-size: 17px;');
       answ.computer_answer === answ.correct_answer
-        ? (computer.style = 'color: green; font-weight: 700;')
-        : (computer.style = 'color: red; font-weight: 700;');
+        ? (computer.style = 'color: green; font-weight: 700; font-size: 17px;')
+        : (computer.style = 'color: red; font-weight: 700; font-size: 17px;');
 
       img.style = 'height: 50px; width: auto; border-radius: 10px;';
+      correct.style='font-size: 17px;'
 
       list.appendChild(img);
       list.appendChild(player);
@@ -97,6 +98,8 @@ class GameOver {
     label.appendChild(labelText);
 
     input.addEventListener('keydown', () => {
+      let inp=document.getElementById('nick').value
+      console.log(inp);
       this.nick = document.querySelector('#nick').value;
     });
 
@@ -126,8 +129,8 @@ class GameOver {
       `The force is strong in you young Padawan! During 1 minute you have answered ${playerAnswers} / ${totalAnsw} questions. And Google quessed ${computerAnswers} / ${totalAnsw}.`,
     );
 
-    title.style = 'text-align: center;';
-    subtitle.style = 'text-align: center;';
+    title.style = 'text-align: center; font-size: 26px; font-weight: bold; margin: 10px 0;';
+    subtitle.style = 'text-align: center; font-size: 22px; margin: 20px 0;';
 
     title.appendChild(gameover);
     subtitle.appendChild(description);
