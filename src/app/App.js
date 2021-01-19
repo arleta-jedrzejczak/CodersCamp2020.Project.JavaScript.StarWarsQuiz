@@ -105,11 +105,7 @@ class App {
 
       setTimeout(() => {
         this.loader.hide();
-        this.gamepanel.render(data.answers);
-        ImageBase64(`./${this.options.imagesUrl}${this.mode}/${data.id}.jpg`)
-        .then(dataUrl => {
-          this.image.puttingImage(dataUrl);
-        });
+        this.renderGamePanel(data);
 
         const btns = document.querySelectorAll('li[data-answer]');
         btns.forEach(b => {
@@ -122,15 +118,11 @@ class App {
             this.player.addPlayerAnswer(theAnswer);
 
             if (this.appIsRunning) {
-              data = this.game.renderQuestions();
-              this.gamepanel.render(data.answers);
-              ImageBase64(`./${this.options.imagesUrl}${this.mode}/${data.id}.jpg`)
-              .then(dataUrl => {
-                this.image.puttingImage(dataUrl);
-              });
+              let newQestion = this.game.renderQuestions();
+              this.renderGamePanel(newQestion);
             }
           });
-        })
+        });
         
         this.game.theLoop(() => {
           if (this.appIsRunning) {
@@ -150,11 +142,28 @@ class App {
     }
   }
 
+  renderGamePanel(data)
+  {
+    this.gamepanel.render(data.answers);
+    ImageBase64(`./${this.options.imagesUrl}${this.mode}/${data.id}.jpg`)
+    .then(dataUrl => {
+      this.image.puttingImage(dataUrl);
+    });
+  }
+
   end()
   {
     this.appIsRunning = false;
     this.game.endGame();
-    this.player.getPlayerData();
+    let playerData = this.player.getPlayerData();
+    let data = {
+      game_type: this.mode,
+      player_total_points: playerData.totalPoints,
+      computer_total_points: 0,
+      player_total_answers: playerData.totalAnswers,
+      answers: playerData.answers
+    };
+      
     const modal = this.gameover.createModal(data, submitFn);
       modal.style =
         'display: block; max-width: 800px; z-index: 1000; background-color: white; border-radius: 10px; padding: 10px; margin: auto; position: fixed; top: 10%; left: 10%;';

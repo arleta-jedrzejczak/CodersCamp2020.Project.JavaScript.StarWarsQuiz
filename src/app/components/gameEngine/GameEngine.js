@@ -59,11 +59,6 @@ class GameEngine {
         return data;
     }
 
-    getRightAnswerImage(id = null)
-    {
-        return toDataURL(`./${this.options.imageUrl}${this.mode}/${id}.jpg`);
-    }
-
     checkAnswer(answer = null)
     {
         if (answer === this.rightAnswer) {
@@ -107,6 +102,7 @@ class GameEngine {
     #getRandomIds()
     {
         let lastId = 0;
+        this.questionsIds = [];
 
         switch(this.mode) {
             case 'people':
