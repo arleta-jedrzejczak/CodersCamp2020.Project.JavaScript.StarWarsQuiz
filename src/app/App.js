@@ -138,16 +138,6 @@ class App {
     this.counter = new Counter();
     this.lightsaber = new Lightsaber();
   }
-
-  changeGameMode(mode){
-    console.log(document);
-    document
-    .querySelector('#currentGameMode')
-    .appendChild(this.rules.renderHeader(mode)).bind(this)
-  document
-    .querySelector('#currentGameModeDescription')
-    .appendChild(this.rules.renderDescription(mode)).bind(this)
-  }
 }
 
 export default App;
