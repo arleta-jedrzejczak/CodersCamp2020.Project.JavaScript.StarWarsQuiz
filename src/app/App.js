@@ -7,7 +7,11 @@ import Image from './components/image/image';
 import GameOver from './components/gameOver/gameOver';
 import localStorage from './components/localStorage/localStorage';
 import TableWithScores from './components/TableWithScores';
+import GameEngine from './components/gameEngine/GameEngine';
 import { data } from './components/gameOver/data';
+import Player from './components/player/Player';
+
+import ImageBase64 from './helpers/ImageBase64';
 
 // dummy data for generate table, it should be delate and take from local storage
 let players = [
@@ -31,6 +35,7 @@ const submitFn = (a) => {
 
 class App {
   constructor(options) {
+    this.options = options.options;
     //   this.counter = new Counter(gameStarted);
     //   this.lightsaber = new Lightsaber(gameStarted);
 
@@ -38,11 +43,8 @@ class App {
 
     this.redButton = document.querySelector('.redButton');
     this.redButton.innerHTML = `PLAY THE GAME`;
-    this.redButton.addEventListener('click', () => {
-      this.renderTimer();
-      this.redButton.classList.add('hidden');
-      this.whiteButton.classList.add('hidden');
-    });
+    this.whiteButton = document.querySelector('.whiteButton');
+    
 
     //////////////////////////////    GAME OVER MODULe
 
@@ -76,10 +78,10 @@ class App {
 
     document
       .querySelector('#currentGameMode')
-      .appendChild(this.rules.renderHeader('starships-intro'));
+      .appendChild(this.rules.renderHeader('characters-intro'));
     document
       .querySelector('#currentGameModeDescription')
-      .appendChild(this.rules.renderDescription('starships-intro'));
+      .appendChild(this.rules.renderDescription('characters-intro'));
 
     ////////////////////////////////////////////////////
 
@@ -87,7 +89,45 @@ class App {
     // First argument 'answear' boolean, is responsible for checking correct answear
     // Second is ID of a DOMelement which should be colored
 
-    this.whiteButton = this.whiteButtonRender();
+    this.mode = 'people';
+    this.player = new Player();
+    this.gameEngine = new GameEngine(options, this.mode, this.player);
+
+    this.init();
+  }
+
+  init()
+  {
+    this.render();
+
+    this.redButton.addEventListener('click', () => {
+      this.renderTimer();
+      this.redButton.classList.add('hidden');
+      this.whiteButton.classList.add('hidden');
+      this.run();
+    });
+  }
+
+  render()
+  {
+    // White button render
+    this.whiteButtonRender();
+    // Welcome image
+    ImageBase64(`./${this.options.imagesUrl}${this.mode}/11.jpg`)
+    .then(dataUrl => {
+      console.log(dataUrl);
+      this.image.puttingImage(dataUrl);
+    });
+  }
+
+  run()
+  {
+    this.gameEngine.startGame();
+  }
+
+  end()
+  {
+
   }
 
   whiteButtonRender() {
@@ -100,14 +140,6 @@ class App {
     // Second method localStorage.getScore() which return table of 3 highest scores in order.
 
     whiteButton.innerHTML = `<i class="fas fa-id-badge"></i></i>Hall of fame`;
-
-    /////////////    EXAMPLE DIV    DO USUNIECIA
-
-    const div = document.createElement('div');
-    div.setAttribute('id', 'foo');
-    div.innerHTML = 'sjkabdbasdjhavsdbavsb';
-
-    ///////////////////////////////////////
 
     whiteButton.addEventListener('click', () => {
       if (flag) {
