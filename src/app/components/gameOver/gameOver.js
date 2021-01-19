@@ -86,6 +86,7 @@ class GameOver {
   }
 
   createInput() {
+    this.nick=''
     const container = document.createElement('div');
     const input = document.createElement('input');
     input.setAttribute('id', 'nick');
@@ -97,10 +98,8 @@ class GameOver {
     );
     label.appendChild(labelText);
 
-    input.addEventListener('keydown', () => {
-      let inp=document.getElementById('nick').value
-      console.log(inp);
-      this.nick = document.querySelector('#nick').value;
+    input.addEventListener('input', e => {
+      this.nick=e.target.value
     });
 
     label.style = 'font-size: 19px; text-align: center;';
