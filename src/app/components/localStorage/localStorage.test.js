@@ -139,12 +139,3 @@ test('Testing save more then 3 and read 3 highest score objects', () => {
     },
   ]);
 });
-
-test('Testing empty score tab read', () => {
-  const local = new localStorage();
-  local.Storage.removeItem('Score');
-
-  expect(() => {
-    local.getScore();
-  }).toThrow('No scores was saved!');
-});
