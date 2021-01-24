@@ -57,11 +57,11 @@ class App {
     btn.addEventListener('click', () => {
       const modal = this.gameover.createModal(data, this.localStorage.save);    //data send to localStorage.save()
       modal.style =
-        'display: block; max-width: 800px; z-index: 1000; background-color: white; border-radius: 10px; padding: 10px; margin: auto; position: fixed; top: 10%; left: 10%;';
+        'display: block; max-width: 800px; z-index: 1000; background-color: white; border-radius: 10px; padding: 10px; margin: auto;';
 
       document.querySelector('#game-over').appendChild(modal);
       document.querySelector('#game-over').style =
-        'height: 100vh; position: fixed; width: 100vw; top: 0; z-index: 900; left: 0; background-color: rgba(0, 0, 0, 0.5)';
+        'height: 100vh; position: absolute; width: 100vw; top: 0; z-index: 900; left: 0; background-color: rgba(0, 0, 0, 0.5)';
     });
 
     /////////////////////////////////////////////////
