@@ -61,6 +61,7 @@ class App {
 
     this.redButton.addEventListener('click', () => {
       this.redButton.classList.add('hidden');
+      this.whiteButton = document.querySelector('.whiteButton');
       this.whiteButton.classList.add('hidden');
       this.run();
     });
