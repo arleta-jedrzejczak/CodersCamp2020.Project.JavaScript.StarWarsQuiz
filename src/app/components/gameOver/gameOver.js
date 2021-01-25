@@ -1,6 +1,9 @@
+import localStorage from './../localStorage/localStorage';
+
 class GameOver {
   constructor() {
     this.nick = '';
+    this.localStorage = new localStorage();
   }
 
   createList(data) {
@@ -144,6 +147,11 @@ class GameOver {
     btn.addEventListener('click', () => {
       if (this.nick) {
         submitFn(this.nick);
+        let playerData = {
+          nick: this.nick,
+          points: `${playerAnswers}/${totalAnsw}`
+        };
+        this.localStorage.save(playerData);
         document.querySelector('#game-over').style = 'display: none;';
       } else {
         alert('your nick is empty!');

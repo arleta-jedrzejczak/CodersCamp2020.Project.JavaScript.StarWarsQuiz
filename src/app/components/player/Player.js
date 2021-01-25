@@ -7,7 +7,15 @@ class Player {
 
     addPlayerAnswer(answer = null)
     {
-        this.answers.push(answer);
+        this.answers.push({
+            id: answer.id,
+            correct_answer: answer.correct,
+            player_answer: answer.name,
+            computer_answer: answer.name,
+            img: `../static/assets/img/modes/people/${answer.id}.jpg`,
+            is_correct: answer.isCorrect
+        });
+
         this.totalAnswers++;
     }
 
@@ -16,13 +24,16 @@ class Player {
         this.points++;
     }
 
-    getPlayerData()
+    getPlayerData(mode)
     {
         const data = {
-            totalPoints: this.points,
-            totalAnswers: this.totalAnswers,
+            game_type: mode,
+            player_total_points: this.points,
+            player_total_answers: this.totalAnswers,
             answers: this.answers
         };
+
+        console.log(data);
 
         return data;
     }

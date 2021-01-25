@@ -16,6 +16,7 @@ class GameEngine {
         this.questionsIds = [];
         this.answers = [];
         this.rightAnswer = '';
+        this.rightAnswerId = 0;
         this.isAnswerCorrect = false;
         this.gamepanel = new GamePanel();
         this.image = new Image();
@@ -33,7 +34,7 @@ class GameEngine {
         this.#getRandomIds();
         const answers = [];
         const answersIds = this.questionsIds;
-        const rightAnswerId = answersIds[0];
+        this.rightAnswerId = answersIds[0];
         let data = {};
         
         answersIds.forEach(qid => {
@@ -44,7 +45,7 @@ class GameEngine {
             })
         });
 
-        let promise2 = this.api.sendRequest(rightAnswerId)
+        let promise2 = this.api.sendRequest(this.rightAnswerId)
             .then(response => response.json())
             .then(data => this.rightAnswer = data.name);
 
@@ -52,7 +53,7 @@ class GameEngine {
         .then(values => {
             setTimeout(() => {
                 data = {
-                    id: rightAnswerId,
+                    id: this.rightAnswerId,
                     answers: answers,
                     rightAnswer: values[0]
                 };
@@ -82,6 +83,15 @@ class GameEngine {
         } else {
             this.isAnswerCorrect = false;
         }
+
+        
+        
+        this.player.addPlayerAnswer({
+                id: this.rightAnswerId,
+                correct_answer: this.rightAnswer,
+                player_answer: answer,
+                is_correct: this.isAnswerCorrect
+        });
 
         return this.isAnswerCorrect;
     }

@@ -109,7 +109,6 @@ class App {
             let theAnswer = b.getAttribute('data-answer');
             let check = this.game.checkAnswer(theAnswer);
 
-            this.player.addPlayerAnswer(theAnswer);
             this.answearDisplay = new answearDisplay(check, theAnswer.split(' ')[0]);
 
             if (this.appIsRunning) {
@@ -140,16 +139,9 @@ class App {
   {
     this.appIsRunning = false;
     this.game.endGame();
-    let playerData = this.player.getPlayerData();
-    let data = {
-      game_type: this.mode,
-      player_total_points: playerData.totalPoints,
-      computer_total_points: 0,
-      player_total_answers: playerData.totalAnswers,
-      answers: playerData.answers
-    };
+    let playerData = this.player.getPlayerData(this.mode);
       
-    const modal = this.gameover.createModal(data, submitFn);
+    const modal = this.gameover.createModal(playerData, submitFn);
       modal.style =
         'display: block; max-width: 800px; z-index: 1000; background-color: white; border-radius: 10px; padding: 10px; margin: auto; position: fixed; top: 10%; left: 10%;';
 

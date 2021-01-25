@@ -1,6 +1,6 @@
 class Counter {
   countDownEl = document.querySelector('#counter');
-  time = 120;
+  time = 12;
   gameStarted = true;
 
   checkGame() {
