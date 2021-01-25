@@ -148,8 +148,8 @@ class GameOver {
       if (this.nick) {
         submitFn(this.nick);
         let playerData = {
-          nick: this.nick,
-          points: `${playerAnswers}/${totalAnsw}`
+          player: this.nick,
+          answered: `${playerAnswers}/${totalAnsw}`
         };
         this.localStorage.save(playerData);
         document.querySelector('#game-over').style = 'display: none;';
