@@ -48,12 +48,6 @@ class App {
     this.gameover = new GameOver();
     this.gamepanel = new GamePanel();
 
-    ////////////////////////////////////////////////////
-
-    //   this.answearDisplay = new answearDisplay(answear, elementId);
-    // First argument 'answear' boolean, is responsible for checking correct answear
-    // Second is ID of a DOMelement which should be colored
-
     this.mode = 'people';
     this.player = new Player();
     this.game = new GameEngine(options, this.mode, this.player);
@@ -97,15 +91,15 @@ class App {
   run()
   {
     this.game.startGame();
+    this.gamepanel.create();
     this.appIsRunning = true;
 
     if (this.appIsRunning) {
       this.loader.show();
-      let data = this.game.renderQuestions();
-
+      this.game.renderQuestions();
+      
       setTimeout(() => {
         this.loader.hide();
-        this.renderGamePanel(data);
 
         const btns = document.querySelectorAll('li[data-answer]');
         btns.forEach(b => {
@@ -113,13 +107,14 @@ class App {
             ev.preventDefault();
             
             let theAnswer = b.getAttribute('data-answer');
-            this.game.checkAnswer(theAnswer);
+            let check = this.game.checkAnswer(theAnswer);
 
             this.player.addPlayerAnswer(theAnswer);
+            // this.answearDisplay = new answearDisplay(check, theAnswer.split(' ')[0]);
 
             if (this.appIsRunning) {
-              let newQestion = this.game.renderQuestions();
-              this.renderGamePanel(newQestion);
+              //this.gamepanel.clear();
+              this.game.renderQuestions();
             }
           });
         });
@@ -140,15 +135,6 @@ class App {
         });
       }, 2000);
     }
-  }
-
-  renderGamePanel(data)
-  {
-    this.gamepanel.render(data.answers);
-    ImageBase64(`./${this.options.imagesUrl}${this.mode}/${data.id}.jpg`)
-    .then(dataUrl => {
-      this.image.puttingImage(dataUrl);
-    });
   }
 
   end()

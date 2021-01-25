@@ -1,5 +1,8 @@
 import API from ".././api/API";
-import toDataURL from "../.././helpers/ImageBase64";
+import Image from '.././image/image';
+import GamePanel from '../.././views/gameEngineView';
+
+import ImageBase64 from '../.././helpers/ImageBase64';
 
 class GameEngine {
     constructor(options, mode, player)
@@ -14,6 +17,8 @@ class GameEngine {
         this.answers = [];
         this.rightAnswer = '';
         this.isAnswerCorrect = false;
+        this.gamepanel = new GamePanel();
+        this.image = new Image();
     }
 
     init()
@@ -30,33 +35,43 @@ class GameEngine {
         const answersIds = this.questionsIds;
         const rightAnswerId = answersIds[0];
         let data = {};
-
-        // Get all random answers
+        
         answersIds.forEach(qid => {
             this.api.sendRequest(qid)
             .then(response => response.json())
-            .then(data => {
-                answers.push(data.name);
+            .then(res => {
+                answers.push(res.name);
             })
         });
 
-        // Get right answer
-        this.api.sendRequest(rightAnswerId)
-        .then(response => response.json())
-        .then(data => this.rightAnswer = data.name);
+        let promise2 = this.api.sendRequest(rightAnswerId)
+            .then(response => response.json())
+            .then(data => this.rightAnswer = data.name);
 
-        data = {
-            id: rightAnswerId,
-            answers: answers,
-            rightAnswer: this.rightAnswer
-        };
+        Promise.all([promise2])
+        .then(values => {
+            setTimeout(() => {
+                data = {
+                    id: rightAnswerId,
+                    answers: answers,
+                    rightAnswer: values[0]
+                };
+    
+                this.answers = [...this.answers];
+                this.answers.push(data);
 
-        this.answers = [...this.answers];
-        this.answers.push(data);
+                console.log(data);
 
-        console.log(data);
+                ImageBase64(`./${this.options.imagesUrl}${this.mode}/${data.id}.jpg`)
+                .then(dataUrl => {
+                    this.image.puttingImage(dataUrl);
+                });
 
-        return data;
+                this.gamepanel.render(data.answers);
+                    
+                return data;
+            }, 500);
+        });
     }
 
     checkAnswer(answer = null)
