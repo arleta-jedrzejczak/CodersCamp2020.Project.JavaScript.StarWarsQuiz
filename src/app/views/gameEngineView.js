@@ -42,6 +42,8 @@ class GamePanel  {
         this.answers = answers;
         console.log(this.answers);
         this.answers.forEach((answer, index) => {
+            btns[index].style.background = '#FFFFFF';
+            btns[index].style.boxShadow = '0px 4px 4px rgba(0, 0, 0, 0.25)';
             btns[index].innerText = answer;
             btns[index].setAttribute('data-answer', answer);
             btns[index].setAttribute('id', answer.split(' ')[0]);

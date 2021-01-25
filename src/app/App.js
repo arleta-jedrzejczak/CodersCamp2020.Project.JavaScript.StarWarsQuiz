@@ -110,10 +110,9 @@ class App {
             let check = this.game.checkAnswer(theAnswer);
 
             this.player.addPlayerAnswer(theAnswer);
-            // this.answearDisplay = new answearDisplay(check, theAnswer.split(' ')[0]);
+            this.answearDisplay = new answearDisplay(check, theAnswer.split(' ')[0]);
 
             if (this.appIsRunning) {
-              //this.gamepanel.clear();
               this.game.renderQuestions();
             }
           });

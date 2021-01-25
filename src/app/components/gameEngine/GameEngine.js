@@ -79,6 +79,8 @@ class GameEngine {
         if (answer === this.rightAnswer) {
             this.isAnswerCorrect = true;
             this.player.addPlayerPoint();
+        } else {
+            this.isAnswerCorrect = false;
         }
 
         return this.isAnswerCorrect;
