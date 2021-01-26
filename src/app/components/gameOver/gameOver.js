@@ -16,7 +16,7 @@ class GameOver {
     yoda.setAttribute('id', 'yodaImage');
 
     header.appendChild(document.createTextNode('Detailed Answers'));
-    header.style = 'text-align: center; font-size: 20px; font-weight: bold; ';
+    header.style = 'text-align: center; font-size: 20px; font-weight: bold; margin-bottom: 14px;';
 
     yoda.setAttribute('src', 'static/assets/img/modes/gameover/MasterYoda.png');
 
@@ -93,6 +93,7 @@ class GameOver {
     const input = document.createElement('input');
     input.setAttribute('id', 'nick');
     input.setAttribute('type', 'text');
+    input.style='font-size: 26px;'
     const label = document.createElement('label');
 
     const labelText = document.createTextNode(
