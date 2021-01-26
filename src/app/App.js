@@ -47,6 +47,7 @@ class App {
     this.lightsaber = new Lightsaber();
     this.gameover = new GameOver();
     this.gamepanel = new GamePanel();
+    this.localStorage = new localStorage();
 
     this.mode = 'people';
     this.player = new Player();
@@ -58,7 +59,6 @@ class App {
   init()
   {
     this.render();
-
     this.redButton.addEventListener('click', () => {
       this.redButton.classList.add('hidden');
       this.whiteButton = document.querySelector('.whiteButton');
@@ -155,7 +155,6 @@ class App {
     // TODO: throw after add gameStarted flag to start button
     const gameStarted = false;
     let flag = true;
-    // const localStorage = new this.localStorage();
     const whiteButton = document.querySelector('.whiteButton');
     // Class have 2 methods localStorage.save(obj), where 'obj' is object with 2 parametrs player - that have player nick(string) and answered - that have score of that player(string). This method save this obj in score table.
     // Second method localStorage.getScore() which return table of 3 highest scores in order.
@@ -164,11 +163,11 @@ class App {
 
     whiteButton.addEventListener('click', () => {
       if (flag) {
-        whiteButton.innerHTML = `<i class="fas fa-graduation-cap"></i>Rules`;
-        // this.tableWithScores = new TableWithScores('currentGameModeDescription');
-        // this.tableWithScores.renderTable(this.localStorage.getScore());
         document.querySelector('#gameModeDescriptionText').remove();
-        document.querySelector('#currentGameModeDescription').appendChild(div); //append here table with scores
+        document.querySelector('#currentGameModeDescription').innerHTML = `<div id="foo"></div>`; //append here table with scores
+        whiteButton.innerHTML = `<i class="fas fa-graduation-cap"></i>Rules`;
+        this.tableWithScores = new TableWithScores('foo');
+        this.tableWithScores.renderTable(this.localStorage.getScore());
 
         return (flag = false);
       } else {

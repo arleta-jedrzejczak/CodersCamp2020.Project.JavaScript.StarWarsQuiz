@@ -59,7 +59,7 @@ class localStorage {
       }
       return this.highScoreTab;
     } else {
-      throw new Error('No scores was saved!');
+      return this.highScoreTab;
     }
   }
 }
