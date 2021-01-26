@@ -16,7 +16,7 @@ class GameOver {
     yoda.setAttribute('id', 'yodaImage');
 
     header.appendChild(document.createTextNode('Detailed Answers'));
-    header.style = 'text-align: center;';
+    header.style = 'text-align: center; font-size: 20px; font-weight: bold; ';
 
     yoda.setAttribute('src', 'static/assets/img/modes/gameover/MasterYoda.png');
 
@@ -31,10 +31,10 @@ class GameOver {
     const subheader4 = document.createElement('h5');
     subheader4.appendChild(document.createTextNode('Answer'));
 
-    subheader1.style = 'color: #666';
-    subheader2.style = 'color: #666';
-    subheader3.style = 'color: #666';
-    subheader4.style = 'color: #666';
+    subheader1.style = 'color: #666; margin-bottom: 20px; font-size: 18px;';
+    subheader2.style = 'color: #666; margin-bottom: 20px; font-size: 18px;';
+    subheader3.style = 'color: #666; margin-bottom: 20px; font-size: 18px;';
+    subheader4.style = 'color: #666; margin-bottom: 20px; font-size: 18px;';
 
     subheader.appendChild(subheader1);
     subheader.appendChild(subheader2);
@@ -53,13 +53,13 @@ class GameOver {
       img.setAttribute('src', answ.img);
 
       answ.player_answer === answ.correct_answer
-        ? (player.style = 'color: green; font-weight: 700;')
-        : (player.style = 'color: red; font-weight: 700;');
+        ? (player.style = 'color: green; font-weight: 700; font-size: 18px;')
+        : (player.style = 'color: red; font-weight: 700; font-size: 18px;');
       answ.computer_answer === answ.correct_answer
-        ? (computer.style = 'color: green; font-weight: 700;')
-        : (computer.style = 'color: red; font-weight: 700;');
+        ? (computer.style = 'color: green; font-weight: 700; font-size: 18px;')
+        : (computer.style = 'color: red; font-weight: 700; font-size: 18px;');
 
-      img.style = 'height: 50px; width: auto; border-radius: 10px;';
+      img.style = 'height: 50px; width: auto; border-radius: 10px; font-size: 18px;';
 
       list.appendChild(img);
       list.appendChild(player);
@@ -80,6 +80,7 @@ class GameOver {
     subheader.style =
       'display: grid; grid-template-columns: 40px 1fr 1fr 1fr; grid-column-gap: 20px; grid-row-gap: 10px;';
     summary.style = 'width: 100%';
+
     list.style =
       'height: 260px; overflow-y: scroll; overflow-x: hidden; display: grid; grid-template-columns: 40px 1fr 1fr 1fr; grid-column-gap: 20px; grid-row-gap: 10px; margin-bottom: 20px;';
     container.style = 'display: flex;';
@@ -129,8 +130,8 @@ class GameOver {
       `The force is strong in you young Padawan! During 1 minute you have answered ${playerAnswers} / ${totalAnsw} questions. And Google quessed ${computerAnswers} / ${totalAnsw}.`,
     );
 
-    title.style = 'text-align: center;';
-    subtitle.style = 'text-align: center;';
+    title.style = 'text-align: center; font-size: 22px; font-weight: bold; margin-bottom: 10px;';
+    subtitle.style = 'text-align: center; font-size: 18px; margin-bottom: 30px;';
 
     title.appendChild(gameover);
     subtitle.appendChild(description);
